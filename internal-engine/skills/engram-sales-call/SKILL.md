@@ -7,7 +7,7 @@ description: Run ENGRAM discovery calls, pilot close conversations, and retainer
 
 This skill governs live sales conversations.
 
-Use `assets/sales/discovery_call_script.txt` as the default call sheet.
+Use `client-facing/assets/sales/discovery_call_script.txt` as the default call sheet.
 
 ## Call structure
 

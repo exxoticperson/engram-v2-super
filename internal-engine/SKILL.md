@@ -10,11 +10,11 @@ This is the root entrypoint for the live ENGRAM system inside `V2 Super`.
 Use this package in the following order:
 
 1. Read `ENGRAM_CORE.md` for the canonical doctrine.
-2. Read `ENGRAM_OFFER.md` for positioning, pricing, and proof policy.
+2. Read `../client-facing/ENGRAM_OFFER.md` for positioning, pricing, and proof policy.
 3. Read `ENGRAM_EXECUTION.md` for the chronological operating order.
-4. Read `ENGRAM_SAMPLE_AUDIT_TEMPLATE.md` for the current report structure.
-5. Read `ENGRAM_CONTRACTS.md` for payment and scope templates.
-6. Use `assets/` for the live operator templates and structured working files.
+4. Read `../client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.md` for the current report structure.
+5. Read `../client-facing/ENGRAM_CONTRACTS.md` for payment and scope templates.
+6. Use `assets/` for internal operator templates and `../client-facing/assets/` for selling materials.
 
 ## Routing rules
 
@@ -77,11 +77,12 @@ Use these non-Markdown assets for day-to-day operations:
 - `assets/design/design_language_research.csv`
 - `assets/design/artifact_design_backlog.csv`
 - `assets/design/design_direction_brief.txt`
-- `assets/sales/outreach_snippets.txt`
-- `assets/sales/discovery_call_script.txt`
-- `assets/email/client_emails.txt`
-- `assets/email/outreach_email_sequences.txt`
-- `assets/contracts/*.txt`
+- `../client-facing/assets/sales/outreach_snippets.txt`
+- `../client-facing/assets/sales/discovery_call_script.txt`
+- `../client-facing/assets/email/client_emails.txt`
+- `../client-facing/assets/email/outreach_email_sequences.txt`
+- `../client-facing/assets/email/outreach_email_automation.yaml`
+- `../client-facing/assets/contracts/*.txt`
 
 ## Audit status note
 

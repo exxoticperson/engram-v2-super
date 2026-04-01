@@ -54,7 +54,7 @@ Those belong to the Outbound Commander.
 
 ## Required assets
 
-- `ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`
+- `client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`
 - `assets/design/design_direction_brief.txt`
 - `assets/design/design_language_research.csv`
 - `assets/design/artifact_design_backlog.csv`

@@ -44,16 +44,15 @@ Not the promise:
 
 ### Canonical system
 
-The repo was reorganized into `V2 Super` as the live operating system.
+The repo was reorganized into `V2 Super` as the live operating system and then split into:
+
+- `client-facing/`
+- `internal-engine/`
 
 That includes:
 
-- root doctrine
-- offer and pricing
-- execution path
-- FAQ
-- sample audit baseline
-- contracts
+- doctrine and execution inside the internal engine
+- client-facing offer, FAQ, audit baseline, and contracts
 - skills
 - assets
 - internal architecture notes
@@ -167,4 +166,4 @@ All future work should be judged against whether it helps those outcomes soon.
 
 ## Recommended startup prompt
 
-> Read `START_HERE.md`, `PROJECT_STATE.md`, and `DECISIONS_LOG.md`. Then read the root docs and internal agent files needed to understand the live ENGRAM system. After that, help me execute the next revenue-focused step rather than expanding architecture.
+> Read `START_HERE.md`, `PROJECT_STATE.md`, and `DECISIONS_LOG.md`. Then read `client-facing/START_SELLING.md` and `internal-engine/SKILL.md` plus the internal agent files needed to understand the live ENGRAM system. After that, help me execute the next revenue-focused step rather than expanding architecture.

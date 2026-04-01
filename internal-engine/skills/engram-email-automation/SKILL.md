@@ -73,8 +73,8 @@ For skeptical replies:
 
 Use:
 
-- `assets/email/outreach_email_automation.yaml`
-- `assets/email/outreach_email_sequences.txt`
+- `client-facing/assets/email/outreach_email_automation.yaml`
+- `client-facing/assets/email/outreach_email_sequences.txt`
 - `assets/ops/pipeline_template.csv`
 
 ## Output format

@@ -19,31 +19,48 @@ The current business model is:
 - no software-first positioning
 - diagnosis, repair, and decision support before spend
 
+## Folder split
+
+The repo is now intentionally split into two layers:
+
+- `client-facing/` for selling material and proof assets
+- `internal-engine/` for doctrine, skills, workflows, agents, and internal operating logic
+
+Use `archive/` only for reference.
+
 ## The most important files to read first
 
 Read these in order:
 
-1. `SKILL.md`
-2. `ENGRAM_CORE.md`
-3. `ENGRAM_OFFER.md`
-4. `ENGRAM_EXECUTION.md`
-5. `ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`
-6. `ENGRAM_CONTRACTS.md`
-7. `internal/ENGRAM_CORE_AGENTS.md`
-8. `internal/ENGRAM_AGENTIC_EXECUTION.md`
-9. `internal/ENGRAM_OVERSIGHT_AGENT.md`
+1. `START_HERE.md`
+2. `PROJECT_STATE.md`
+3. `DECISIONS_LOG.md`
+4. `client-facing/START_SELLING.md`
+5. `internal-engine/SKILL.md`
+6. `internal-engine/ENGRAM_CORE.md`
+7. `client-facing/ENGRAM_OFFER.md`
+8. `internal-engine/ENGRAM_EXECUTION.md`
+9. `client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`
+10. `client-facing/ENGRAM_CONTRACTS.md`
+11. `internal-engine/internal/ENGRAM_CORE_AGENTS.md`
+12. `internal-engine/internal/ENGRAM_AGENTIC_EXECUTION.md`
+13. `internal-engine/internal/ENGRAM_OVERSIGHT_AGENT.md`
 
 Then inspect:
 
-- `skills/`
-- `assets/`
+- `client-facing/`
+- `internal-engine/skills/`
+- `internal-engine/assets/`
 - `archive/`
 
 ## What has already been done
 
 ### Canonicalization
 
-The project was cleaned into a curated `V2 Super` bundle.
+The project was cleaned into a curated `V2 Super` bundle and then split into:
+
+- a client-facing layer
+- an internal-engine layer
 
 That included:
 
@@ -162,7 +179,7 @@ If the goal is revenue now, do this in order:
 
 Use something like this:
 
-> Read `START_HERE.md`, then read `SKILL.md`, `ENGRAM_CORE.md`, `ENGRAM_OFFER.md`, `ENGRAM_EXECUTION.md`, and the files in `internal/` needed to understand the ENGRAM system. After that, inspect `skills/` and `assets/`, summarize where the project stands, and help me execute the next revenue-focused step.
+> Read `START_HERE.md`, `PROJECT_STATE.md`, and `DECISIONS_LOG.md`, then read `client-facing/START_SELLING.md` and `internal-engine/SKILL.md`. After that, inspect the client-facing layer and the internal-engine layer, summarize where the project stands, and help me execute the next revenue-focused step.
 
 ## Ground truth rule
 
@@ -177,11 +194,10 @@ If there is any conflict:
 
 This repo is not just documentation.
 
-It is an operating system for ENGRAM.
+It is an operating system for ENGRAM with a separate selling layer.
 
-Use it to:
+Use:
 
-- sharpen proof
-- run outreach
-- close the first clients
-- then improve from reality
+- `client-facing/` to validate demand
+- `internal-engine/` to support execution
+- reality to decide what gets built next

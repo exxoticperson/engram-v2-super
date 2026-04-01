@@ -54,8 +54,8 @@ Those belong to the Proof Architect.
 ## Required assets
 
 - `assets/ops/pipeline_template.csv`
-- `assets/email/outreach_email_sequences.txt`
-- `assets/email/outreach_email_automation.yaml`
+- `client-facing/assets/email/outreach_email_sequences.txt`
+- `client-facing/assets/email/outreach_email_automation.yaml`
 - `assets/ops/agent_handoff_protocol.txt`
 - `assets/agents/agent_registry.yaml`
 

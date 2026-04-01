@@ -7,7 +7,7 @@ description: Source qualified ENGRAM leads and write outreach for the live manua
 
 This is the live outreach playbook for ENGRAM.
 
-Use `assets/sales/outreach_snippets.txt` as the reusable swipe file.
+Use `client-facing/assets/sales/outreach_snippets.txt` as the reusable swipe file.
 
 For stage-aware outbound email sequencing and follow-up logic, use `skills/engram-email-automation/SKILL.md`.
 
