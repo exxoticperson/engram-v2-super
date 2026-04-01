@@ -1,0 +1,41 @@
+ENGRAM CLIENT EMAILS
+
+Intake Confirmation
+Hi [Name],
+
+Got everything - [brand name] is in the queue.
+
+Audit delivery: [date]
+I'll send the PDF, optional Loom walkthrough, and a debrief link as soon as it is ready.
+
+If anything is missing from the submission, I'll reach out right away.
+
+[Name]
+
+Delivery Email
+Hi [Name],
+
+[Brand name] Pre-Flight Audit is done.
+
+ENGRAM Score: [XX/100] - [GO / CONDITIONAL GO / NO GO]
+
+PDF: [link]
+Loom: [link]
+Debrief: [link]
+
+The biggest finding: [one sentence]
+
+[Name]
+
+Post-Call Recap
+Hi [Name],
+
+Good talking earlier. Quick recap:
+
+- [Their pain in their words]
+- [What resonated most]
+- Pilot offer: [price] for [scope]
+
+Next step: [specific action]
+
+[Name]

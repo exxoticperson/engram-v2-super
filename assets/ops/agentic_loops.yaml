@@ -1,0 +1,49 @@
+version: 1
+name: ENGRAM Agentic Loops
+loops:
+  research_to_outreach:
+    trigger: new_target_category_or_agency_batch
+    steps:
+      - pain_mining
+      - battlecard
+      - outreach_email_automation
+      - pipeline_update
+    output:
+      - pain_summary
+      - competitor_angle
+      - email_sequence
+      - next_follow_up_date
+  trend_to_content:
+    trigger: weekly_category_scan
+    steps:
+      - trend_radar
+      - hook_lab
+      - positioning
+      - content_draft
+    output:
+      - trend_brief
+      - three_hook_angles
+      - one_publishable_post
+  audit_to_proof:
+    trigger: completed_audit_with_clear_insight
+    steps:
+      - audit_review
+      - roi_math
+      - case_study_forge
+      - outreach_refresh
+    output:
+      - proof_summary
+      - case_study_draft
+      - new_sales_angle
+  skill_r_and_d:
+    trigger: weekly_skill_review
+    steps:
+      - skill_lab
+      - operator_router_review
+      - asset_gap_review
+      - proposed_refinement
+    output:
+      - skills_to_refine
+      - new_skill_candidates
+      - router_updates
+      - implementation_queue

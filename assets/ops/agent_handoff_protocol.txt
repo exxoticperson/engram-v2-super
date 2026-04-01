@@ -1,0 +1,33 @@
+ENGRAM AGENT HANDOFF PROTOCOL
+
+Every handoff between workflows, agents, or phases should include:
+
+1. Objective
+- What the workflow is trying to achieve
+
+2. Current State
+- What is already known
+- What has already been produced
+
+3. Constraints
+- ICP
+- pricing
+- proof boundary
+- deadlines
+- client sensitivities
+
+4. Recommended Next Action
+- One explicit next move
+
+5. Required Inputs
+- What is still missing
+
+6. Deliverables Produced
+- Files, drafts, tables, or summaries created so far
+
+7. Judgment Required
+- What still needs human review or strategic choice
+
+Rule
+- Handoffs should reduce ambiguity, not narrate process history
+- The next operator should be able to act immediately

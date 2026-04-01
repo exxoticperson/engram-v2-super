@@ -1,0 +1,39 @@
+version: 1
+name: ENGRAM Core Agents
+agents:
+  - id: outbound-commander
+    name: ENGRAM Outbound Commander
+    skill: skills/engram-outbound-commander/SKILL.md
+    mission: Drive outreach, follow-up, and pipeline momentum so ENGRAM reaches real conversations and closes clients.
+    owns:
+      - target selection
+      - prospect qualification
+      - battle cards
+      - outreach drafts
+      - follow-up priority
+      - pipeline updates
+      - objection capture
+      - call prep
+    core_assets:
+      - assets/ops/pipeline_template.csv
+      - assets/email/outreach_email_sequences.txt
+      - assets/email/outreach_email_automation.yaml
+      - assets/ops/agent_handoff_protocol.txt
+  - id: proof-architect
+    name: ENGRAM Proof Architect
+    skill: skills/engram-proof-architect/SKILL.md
+    mission: Strengthen the sample audit and proof layer so ENGRAM looks credible, premium, and ready to sell.
+    owns:
+      - sample audit refinement
+      - proof packaging
+      - report polish
+      - design-quality coordination
+      - client-facing trust improvements
+      - proof library quality
+      - design-system application
+    core_assets:
+      - ENGRAM_SAMPLE_AUDIT_TEMPLATE.md
+      - assets/design/design_direction_brief.txt
+      - assets/design/design_language_research.csv
+      - assets/design/artifact_design_backlog.csv
+      - assets/ops/agent_handoff_protocol.txt

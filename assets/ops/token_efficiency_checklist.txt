@@ -1,0 +1,26 @@
+ENGRAM TOKEN EFFICIENCY CHECKLIST
+
+Use this only when quality will not materially drop.
+
+Safe places to save tokens
+- batch lead qualification
+- first-pass battle cards
+- trend clustering
+- internal summaries
+- file hygiene checks
+- structured data updates
+
+Do not save tokens here
+- final client-facing audit copy
+- flagship sample audit
+- final outbound to top-value targets without review
+- pricing or core positioning changes
+- design direction decisions that affect trust
+
+Questions before optimizing
+1. Is this internal-only?
+2. Is it easy to verify quickly?
+3. Is there a stronger review step after this?
+4. Would a weaker result hurt trust, revenue, or clarity?
+
+If yes to question 4, do not optimize.

@@ -1,0 +1,117 @@
+# ENGRAM Contracts
+## Payment and scope templates
+
+## Payment setup
+
+Recommended payment rails:
+
+1. Stripe
+2. Wise
+3. PayPal only as fallback
+
+## Payment policy
+
+- Pilot Audit: 100 percent upfront
+- Pre-Flight Audit: 50 percent upfront, 50 percent on delivery
+- Monthly Retainer: first month upfront, then monthly in advance
+
+## Pilot scope
+
+Service:
+
+- ENGRAM Pilot Audit
+- 1 to 2 short-form video ads
+
+Deliverables:
+
+- one audit PDF per ad
+- optional Loom walkthrough
+- one live debrief call
+- one revision round
+
+Turnaround:
+
+- 48 hours from receipt of all required inputs
+
+Investment:
+
+- $2,500
+
+Terms:
+
+- decision-support service, not business-outcome guarantee
+- confidential treatment of client materials
+- anonymized aggregated findings may be used for benchmarking
+- revision requests within 5 business days
+- refund available if the pilot does not deliver actionable clarity
+
+## Standard audit scope
+
+Service:
+
+- ENGRAM Pre-Flight Audit
+- 3 to 5 ads
+
+Deliverables:
+
+- one audit PDF per ad
+- optional Loom walkthrough
+- live debrief call
+- recut guidance
+- one revision round
+
+Turnaround:
+
+- 72 hours from receipt of all required inputs
+
+Investment:
+
+- $5,000 to $7,500 depending on volume
+
+## Retainer scope
+
+Service:
+
+- ENGRAM monthly creative intelligence retainer
+
+Deliverables:
+
+- pre-launch audits for agreed monthly capacity
+- monthly category trend context
+- priority turnaround
+- direct operating channel
+
+Investment:
+
+- $10,000 to $15,000 per month
+
+Term:
+
+- rolling monthly with 30 days notice
+
+## Required invoice fields
+
+- ENGRAM
+- client name
+- service description
+- amount
+- due date
+- payment link
+
+## Required terms language
+
+Include this exact business boundary in each template:
+
+> ENGRAM diagnostics are based on neural response prediction and semantic analysis signals. They identify likely attention failures and comprehension gaps. They are not guarantees of business outcomes. This is a decision-support tool designed to improve launch selection and reduce creative waste, not a predictor of conversion rate, ROAS, or sales.
+
+## Note
+
+These are working operator templates, not legal advice. Have a lawyer review them before use with larger or more complex accounts.
+
+## Working files
+
+Use the live text templates in:
+
+- `assets/contracts/pilot_scope_template.txt`
+- `assets/contracts/standard_audit_scope_template.txt`
+- `assets/contracts/retainer_scope_template.txt`

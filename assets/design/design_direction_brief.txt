@@ -1,0 +1,24 @@
+ENGRAM DESIGN DIRECTION BRIEF
+
+Goal
+- Make ENGRAM feel premium, clear, intelligent, and worth the price
+
+Use this brief to define:
+- the visual language
+- typography direction
+- color logic
+- data-display style
+- motion principles
+- report and proposal feel
+
+Questions to answer
+- What should ENGRAM feel like on first impression?
+- What visual signals increase trust?
+- What feels too generic, too trendy, or too startup-like?
+- What design system can work across reports, decks, onboarding, and landing pages?
+
+Outputs
+- design direction recommendation
+- reference shortlist
+- component guidance
+- do / avoid list

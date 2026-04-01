@@ -1,0 +1,27 @@
+ENGRAM SKILL REFINEMENT LOOP
+
+Run this loop when improving the system itself.
+
+1. Review the active skills
+- Which ones are used often
+- Which ones overlap
+- Which ones feel vague or low leverage
+
+2. Review the bottlenecks
+- Where work is repetitive
+- Where outputs are inconsistent
+- Where a missing asset is causing friction
+
+3. Decide the action
+- refine a skill
+- merge two skills
+- create a new skill
+- move repetitive structure into assets
+- retire a weak skill
+
+4. Update the router
+- Keep the root operator system aligned with the live skill set
+
+5. Queue the next improvement
+- Do not stop at observation
+- Always end with a concrete next skill or asset move

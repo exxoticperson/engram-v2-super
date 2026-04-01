@@ -1,0 +1,4 @@
+skill_id,skill_name,status,reason,current_value,next_action,owner,notes
+SKILL-001,engram-outreach,active,Core outbound workflow,High,Refine using real reply data,You,
+SKILL-002,engram-agentic-workflows,active,Loop orchestration,High,Use for recurring runs,You,
+SKILL-003,engram-skill-lab,active,Capability R&D,High,Review weekly,You,

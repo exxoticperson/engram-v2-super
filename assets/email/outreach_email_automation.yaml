@@ -1,0 +1,48 @@
+version: 1
+name: ENGRAM Outreach Email Automation
+sequence:
+  first_touch:
+    day_offset: 0
+    goal: earn reply, permission to send sample audit, or call
+    required_fields:
+      - first_name
+      - agency_name
+      - pain_signal
+      - personalization_hook
+    rules:
+      - keep_under_140_words
+      - no_internal_model_names
+      - no_free_audit_language
+      - ask_for_one_next_step
+  follow_up_1:
+    day_offset: 5
+    goal: restate relevance using one new angle
+    rules:
+      - introduce_new_signal_or_observation
+      - keep_under_120_words
+      - stop_if_replied
+  follow_up_2:
+    day_offset: 10
+    goal: use proof or category observation to force a decision
+    rules:
+      - refer_to_sample_audit_or_specific_pattern
+      - keep_under_120_words
+      - stop_if_replied
+stop_conditions:
+  - replied
+  - hard_no
+  - wrong_fit
+  - sample_sent_and_no_follow_up_needed
+pipeline_updates:
+  sent_first_touch: CONTACTED
+  replied_positive: REPLIED
+  call_booked: CALLED
+  paid_pilot: CLOSED
+send_windows:
+  preferred_days:
+    - Tuesday
+    - Wednesday
+    - Thursday
+  preferred_time_local:
+    - "09:00-11:30"
+    - "14:00-16:30"
