@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENGRAM Execution Roadmap</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #101010;
+      --panel-2: #171717;
+      --line: rgba(255,255,255,0.08);
+      --text: #f4efe7;
+      --muted: rgba(244,239,231,0.72);
+      --accent: #d6b98c;
+      --good: #9be5bb;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #050505, #0a0a0a 60%, #050505);
+      color: var(--text);
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 40px 24px 80px; }
+    .hero { margin-bottom: 28px; }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.95;
+    }
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .card ul, .card ol {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+    .section-title {
+      margin: 42px 0 14px;
+      font-size: 24px;
+    }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    a strong {
+      display: block;
+      margin-bottom: 6px;
+      color: white;
+    }
+    a span {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .status {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: rgba(155,229,187,0.08);
+      border: 1px solid rgba(155,229,187,0.18);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">ENGRAM / First-Client Mode</div>
+      <h1>Open this file first.</h1>
+      <p class="lead">
+        ENGRAM is out of build mode. The job now is simple: use the compact report as the proof asset,
+        work the first 50-agency batch, send outreach, get replies, book calls, and close the first paid pilot.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>What to do first</h2>
+        <ol>
+          <li>Open the compact report and treat it as the live proof asset.</li>
+          <li>Open the first-client message pack and use that exact sequence.</li>
+          <li>Work from the 50-lead batch and enrich the top targets first.</li>
+          <li>Turn on booking and plug in payment details.</li>
+          <li>Send outreach and log every reply.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h2>What not to do</h2>
+        <ul>
+          <li>Do not build more systems before outreach.</li>
+          <li>Do not reopen strategy loops.</li>
+          <li>Do not explain AI or the backend to clients.</li>
+          <li>Do not chase perfect design past sendable.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Live status</h2>
+        <ul>
+          <li>Proof asset: ready</li>
+          <li>Message pack: ready</li>
+          <li>Lead batch: created</li>
+          <li>Booking: spec only, still needs live link</li>
+          <li>Payment: spec only, still needs real details</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="status">
+      The bottleneck is not the repo anymore. The bottleneck is sending.
+    </div>
+
+    <h2 class="section-title">Open These Next</h2>
+    <div class="links">
+      <a href="./client-facing/reports/engram_client_answer_compact.html">
+        <strong>Compact Report</strong>
+        <span>The one live proof asset to send.</span>
+      </a>
+      <a href="./client-facing/START_SELLING.txt">
+        <strong>Start Selling</strong>
+        <span>The shortest human-readable selling layer entrypoint.</span>
+      </a>
+      <a href="./client-facing/assets/sales/first_client_message_pack.txt">
+        <strong>First-Client Message Pack</strong>
+        <span>Your live opener, send-report line, offer line, and follow-up.</span>
+      </a>
+      <a href="./internal-engine/assets/ops/lead_batch_001.csv">
+        <strong>Lead Batch 001</strong>
+        <span>The 50-agency starter batch to enrich and work from.</span>
+      </a>
+      <a href="./internal-engine/assets/ops/first_client_execution_checklist.txt">
+        <strong>Execution Checklist</strong>
+        <span>The clean checklist for tomorrow and the next few days.</span>
+      </a>
+      <a href="./client-facing/ENGRAM_PILOT_ONE_PAGER.txt">
+        <strong>Pilot One-Pager</strong>
+        <span>The offer summary for calls and follow-ups.</span>
+      </a>
+      <a href="./client-facing/assets/sales/objection_handling.txt">
+        <strong>Objection Handling</strong>
+        <span>Short answers for the common early objections.</span>
+      </a>
+      <a href="./client-facing/assets/sales/loom_walkthrough_template.txt">
+        <strong>Loom Walkthrough</strong>
+        <span>The 2-4 minute talk track for the report.</span>
+      </a>
+      <a href="./client-facing/assets/sales/agency_positioning_angle.txt">
+        <strong>Agency Positioning Angle</strong>
+        <span>The additive frame for selling to agencies without sounding competitive.</span>
+      </a>
+      <a href="./client-facing/assets/sales/agency_pain_points.txt">
+        <strong>Agency Pain Points</strong>
+        <span>The exact pains to hit in outreach and calls.</span>
+      </a>
+      <a href="./client-facing/assets/sales/multi_channel_outreach_playbook.txt">
+        <strong>Multi-Channel Outreach</strong>
+        <span>The channel stack beyond just cold email and DMs.</span>
+      </a>
+      <a href="./client-facing/assets/sales/personalized_loom_outreach.txt">
+        <strong>Personalized Loom Outreach</strong>
+        <span>The short Loom send for highest-fit targets.</span>
+      </a>
+      <a href="./client-facing/assets/sales/linkedin_followup_sequence.txt">
+        <strong>LinkedIn Sequence</strong>
+        <span>The connect and follow-up flow for LinkedIn.</span>
+      </a>
+      <a href="./client-facing/assets/sales/public_insight_post.txt">
+        <strong>Public Insight Post</strong>
+        <span>The proof-led post that supports outbound.</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Background / Context</h2>
+    <div class="links">
+      <a href="./START_HERE.txt">
+        <strong>Start Here</strong>
+        <span>Full project bootstrap and orientation.</span>
+      </a>
+      <a href="./PROJECT_STATE.txt">
+        <strong>Project State</strong>
+        <span>Where the project stands right now.</span>
+      </a>
+      <a href="./DECISIONS_LOG.txt">
+        <strong>Decisions Log</strong>
+        <span>The key choices already made so you do not reopen loops.</span>
+      </a>
+      <a href="./CHANGES_AND_CREATED_FILES.txt">
+        <strong>Changes and Created Files</strong>
+        <span>A clean list of what was added and changed in the execution pass.</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+LEAD UNIVERSE NOTE
+
+The current `lead_batch_001.csv` is not a fully enriched contact list.
+
+It is a target universe:
+- agency names
+- websites
+- fit notes
+- first-pass angle ideas
+
+It still needs:
+- direct contact names
+- direct emails
+- LinkedIn URLs
+- Instagram handles
+- phone numbers when useful
+- recent ad links
+- channel priority
+
+Execution rule
+
+Do not treat the current file as send-ready.
+
+Treat it as the base layer to enrich into a real outreach batch.

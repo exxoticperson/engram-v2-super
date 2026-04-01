@@ -1,0 +1,23 @@
+ENGRAM MANUAL PAYMENT WORKAROUND
+
+Default path for first clients
+1. send invoice manually
+2. collect payment by Wise or direct bank transfer
+3. use PayPal only if the deal is otherwise blocked
+
+Rules
+- Pilot Audit: 100 percent upfront
+- Pre-Flight Audit: 50 percent upfront, 50 percent on delivery
+- Retainer: first month upfront
+
+Invoice checklist
+- client name
+- service name
+- amount due
+- due date
+- Wise link or bank transfer details
+- short payment note
+
+Execution rule
+- payment does not need a perfect stack right now
+- it only needs to not block taking money

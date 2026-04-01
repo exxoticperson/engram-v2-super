@@ -1,0 +1,131 @@
+ENGRAM MULTI-CHANNEL OUTREACH PLAYBOOK
+
+This is the channel stack for first-client execution.
+
+Rule
+- do not rely on one channel
+- do not spam every channel at once
+- use the same core finding in different surfaces
+- the goal is a reply, not a long explanation
+
+PRIORITY ORDER
+
+1. Email
+Best for:
+- founders
+- strategy leads
+- paid social leads
+- agency operators with visible email addresses
+
+Send:
+- curiosity-first opener
+- if reply, send compact report
+- if engaged, send offer
+
+2. LinkedIn DM
+Best for:
+- founders
+- heads of growth
+- paid social leads
+- people active on LinkedIn
+
+Send:
+- same opener as email, shorter
+- no attachment on first touch
+- if reply, send compact report or ask where to send it
+
+3. Instagram DM
+Best for:
+- creative-first agencies
+- social-first agencies
+- agency founders who are active on brand accounts or personal accounts
+
+Send:
+- ultra-short opener
+- mention the ad breakdown
+- ask if they want it
+
+4. Loom plus email or DM
+Best for:
+- top 5 to 10 highest-fit targets
+- premium agencies
+- situations where a written message is not strong enough
+
+Send:
+- 30 to 90 second Loom
+- one concrete diagnosis
+- no platform talk
+- link it inside email or DM
+
+5. Cold call
+Best for:
+- small agencies
+- founder-led shops
+- when contact surfaces are thin
+
+Use:
+- short opener
+- ask for the right person
+- do not pitch the whole system on the phone
+
+6. Voice note
+Best for:
+- warmish Instagram or LinkedIn conversations
+- founder-led agencies where personality helps
+
+Use:
+- one diagnosis
+- one reason it matters
+- one ask
+
+7. Referral / adjacency asks
+Best for:
+- operators you already know
+- people who do not buy but know agencies
+
+Use:
+- "who do you know running paid-social creative for beauty or skincare brands?"
+
+WHAT TO SEND IN EACH CHANNEL
+
+Email
+- opener
+- compact report after reply
+- offer only after engagement
+
+LinkedIn DM
+- opener
+- compact report after reply
+
+Instagram DM
+- opener only
+- move to email if they want the report
+
+Loom
+- one finding
+- one breakpoint
+- one fix
+- ask if they want the full breakdown
+
+Cold call
+- ask who owns launch decisions for creative
+- ask if they want the breakdown sent over
+
+Voice note
+- use only after a written opener has context
+
+BEST FIRST BATCH MIX
+
+For the first 15 targets:
+- 8 email-first
+- 4 LinkedIn-first
+- 2 Instagram-first
+- 1 Loom-assisted
+
+DO NOT DO YET
+
+- SMS blasting
+- broad cold calling lists
+- paid traffic
+- mass automation
+- scraping-heavy expansion before the first reply data comes in

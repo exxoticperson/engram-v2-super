@@ -5,8 +5,8 @@
 
 Recommended payment rails:
 
-1. Stripe
-2. Wise
+1. Wise
+2. Direct bank transfer
 3. PayPal only as fallback
 
 ## Payment policy
@@ -96,7 +96,7 @@ Term:
 - service description
 - amount
 - due date
-- payment link
+- payment instructions
 
 ## Required terms language
 

@@ -68,7 +68,7 @@ Use:
 
 - `assets/design/artifact_design_backlog.csv`
 - `assets/design/design_direction_brief.txt`
-- `client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`
+- `client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt`
 
 ## Rule
 

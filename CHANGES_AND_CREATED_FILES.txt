@@ -1,0 +1,112 @@
+ENGRAM CHANGES AND CREATED FILES
+
+This file explains what was changed in the first-client execution cleanup.
+
+CHANGED FILES
+
+Root
+- START_HERE.txt
+- PROJECT_STATE.txt
+
+Client-facing
+- START_SELLING.txt
+- ENGRAM_CONTRACTS.txt
+- ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt
+- assets/sales/outreach_snippets.txt
+- assets/sales/discovery_call_script.txt
+- assets/email/outreach_email_sequences.txt
+- assets/email/client_emails.txt
+
+Internal-engine
+- ENGRAM_EXECUTION.txt
+- SKILL.md
+- assets/agents/agent_registry.yaml
+- assets/ops/intake_form_schema.yaml
+- assets/ops/pipeline_template.csv
+- internal/ENGRAM_CORE_AGENTS.txt
+- skills/engram-audit/SKILL.md
+- skills/engram-client-experience-design/SKILL.md
+- skills/engram-execution-coordinator/SKILL.md
+- skills/engram-proof-architect/SKILL.md
+
+CREATED FILES
+
+Root
+- OPEN_THIS_FIRST.html
+- CHANGES_AND_CREATED_FILES.txt
+
+Client-facing
+- ENGRAM_PILOT_ONE_PAGER.txt
+- assets/sales/first_client_message_pack.txt
+- assets/sales/objection_handling.txt
+- assets/sales/loom_walkthrough_template.txt
+- reports/LIVE_REPORT.txt
+
+Internal-engine
+- skills/engram-execution-coordinator/SKILL.md
+- internal/ENGRAM_EXECUTION_COORDINATOR.txt
+- assets/ops/first_client_execution_checklist.txt
+- assets/ops/reply_review_log.csv
+- assets/ops/manual_payment_workaround.txt
+- assets/ops/booking_setup.txt
+- assets/ops/lead_batch_001.csv
+
+RENAMED FROM MARKDOWN TO TEXT
+
+Root
+- START_HERE.md -> START_HERE.txt
+- PROJECT_STATE.md -> PROJECT_STATE.txt
+- DECISIONS_LOG.md -> DECISIONS_LOG.txt
+
+Client-facing
+- START_SELLING.md -> START_SELLING.txt
+- ENGRAM_OFFER.md -> ENGRAM_OFFER.txt
+- ENGRAM_FAQ.md -> ENGRAM_FAQ.txt
+- ENGRAM_CONTRACTS.md -> ENGRAM_CONTRACTS.txt
+- ENGRAM_PILOT_ONE_PAGER.md -> ENGRAM_PILOT_ONE_PAGER.txt
+- ENGRAM_SAMPLE_AUDIT_TEMPLATE.md -> ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt
+
+Internal-engine
+- ENGRAM_CORE.md -> ENGRAM_CORE.txt
+- ENGRAM_EXECUTION.md -> ENGRAM_EXECUTION.txt
+- internal/ENGRAM_AGENTIC_EXECUTION.md -> internal/ENGRAM_AGENTIC_EXECUTION.txt
+- internal/ENGRAM_CORE_AGENTS.md -> internal/ENGRAM_CORE_AGENTS.txt
+- internal/ENGRAM_EXECUTION_COORDINATOR.md -> internal/ENGRAM_EXECUTION_COORDINATOR.txt
+- internal/ENGRAM_OVERSIGHT_AGENT.md -> internal/ENGRAM_OVERSIGHT_AGENT.txt
+- internal/ENGRAM_STACK.md -> internal/ENGRAM_STACK.txt
+- internal/ENGRAM_TOOL_PLACEHOLDERS.md -> internal/ENGRAM_TOOL_PLACEHOLDERS.txt
+
+WHAT EACH NEW FILE IS FOR
+
+- OPEN_THIS_FIRST.html
+  Browser-openable roadmap. This is the first file to open.
+
+- ENGRAM_PILOT_ONE_PAGER.txt
+  The simple pilot offer summary.
+
+- first_client_message_pack.txt
+  The main outreach sequence to use right now.
+
+- objection_handling.txt
+  Short responses for common objections.
+
+- loom_walkthrough_template.txt
+  The short Loom script tied to the report.
+
+- LIVE_REPORT.txt
+  Declares which report is canonical.
+
+- first_client_execution_checklist.txt
+  The execution checklist for getting from repo to outreach.
+
+- reply_review_log.csv
+  The place to log replies and diagnose whether the issue is opener, report, or offer.
+
+- manual_payment_workaround.txt
+  The simple non-Stripe payment path.
+
+- booking_setup.txt
+  The minimal call-booking setup.
+
+- lead_batch_001.csv
+  The first 50-agency batch to work from.

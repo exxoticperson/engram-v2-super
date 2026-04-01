@@ -9,11 +9,11 @@ This is the root entrypoint for the live ENGRAM system inside `V2 Super`.
 
 Use this package in the following order:
 
-1. Read `ENGRAM_CORE.md` for the canonical doctrine.
-2. Read `../client-facing/ENGRAM_OFFER.md` for positioning, pricing, and proof policy.
-3. Read `ENGRAM_EXECUTION.md` for the chronological operating order.
-4. Read `../client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.md` for the current report structure.
-5. Read `../client-facing/ENGRAM_CONTRACTS.md` for payment and scope templates.
+1. Read `ENGRAM_CORE.txt` for the canonical doctrine.
+2. Read `../client-facing/ENGRAM_OFFER.txt` for positioning, pricing, and proof policy.
+3. Read `ENGRAM_EXECUTION.txt` for the chronological operating order.
+4. Read `../client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt` for the current report structure.
+5. Read `../client-facing/ENGRAM_CONTRACTS.txt` for payment and scope templates.
 6. Use `assets/` for internal operator templates and `../client-facing/assets/` for selling materials.
 
 ## Routing rules
@@ -23,6 +23,7 @@ Route to the active skill that matches the job:
 - `skills/engram-audit/SKILL.md` for audit generation, scoring, repair recommendations, and sample audit work
 - `skills/engram-outreach/SKILL.md` for lead sourcing, messaging, and outreach planning
 - `skills/engram-outbound-commander/SKILL.md` for the core outreach-and-pipeline execution agent
+- `skills/engram-execution-coordinator/SKILL.md` for keeping the first-client stack moving without reopening strategy
 - `skills/engram-ops/SKILL.md` for intake, delivery, debrief, revisions, and logging
 - `skills/engram-pipeline/SKILL.md` for CRM tracking and follow-up prioritization
 - `skills/engram-trend-research/SKILL.md` for category trend context and benchmark-based snapshots
@@ -63,8 +64,13 @@ Use these non-Markdown assets for day-to-day operations:
 
 - `assets/ops/intake_form_schema.yaml`
 - `assets/ops/pipeline_template.csv`
+- `assets/ops/lead_batch_001.csv`
 - `assets/ops/audit_scorecard_template.csv`
 - `assets/ops/benchmark_log_template.csv`
+- `assets/ops/first_client_execution_checklist.txt`
+- `assets/ops/reply_review_log.csv`
+- `assets/ops/booking_setup.txt`
+- `assets/ops/manual_payment_workaround.txt`
 - `assets/agents/agent_registry.yaml`
 - `assets/email/outreach_email_automation.yaml`
 - `assets/ops/agent_handoff_protocol.txt`
@@ -78,7 +84,10 @@ Use these non-Markdown assets for day-to-day operations:
 - `assets/design/artifact_design_backlog.csv`
 - `assets/design/design_direction_brief.txt`
 - `../client-facing/assets/sales/outreach_snippets.txt`
+- `../client-facing/assets/sales/first_client_message_pack.txt`
 - `../client-facing/assets/sales/discovery_call_script.txt`
+- `../client-facing/assets/sales/objection_handling.txt`
+- `../client-facing/assets/sales/loom_walkthrough_template.txt`
 - `../client-facing/assets/email/client_emails.txt`
 - `../client-facing/assets/email/outreach_email_sequences.txt`
 - `../client-facing/assets/email/outreach_email_automation.yaml`
@@ -90,8 +99,8 @@ The report structure in this bundle is the current baseline. Final audit languag
 
 ## Agentic execution note
 
-Use `internal/ENGRAM_AGENTIC_EXECUTION.md` with `skills/engram-agentic-workflows/SKILL.md` when the goal is to set up recurring research, outbound, proof, or skill-refinement loops.
+Use `internal/ENGRAM_AGENTIC_EXECUTION.txt` with `skills/engram-agentic-workflows/SKILL.md` when the goal is to set up recurring research, outbound, proof, or skill-refinement loops.
 
-Use `internal/ENGRAM_OVERSIGHT_AGENT.md` with `skills/engram-business-overseer/SKILL.md` when the goal is to review the business model, assess recent changes, cut noise, rank leverage, and coordinate other ENGRAM agents.
+Use `internal/ENGRAM_OVERSIGHT_AGENT.txt` with `skills/engram-business-overseer/SKILL.md` when the goal is to review the business model, assess recent changes, cut noise, rank leverage, and coordinate other ENGRAM agents.
 
-Use `internal/ENGRAM_CORE_AGENTS.md` with `skills/engram-outbound-commander/SKILL.md` and `skills/engram-proof-architect/SKILL.md` when the goal is to focus on the two jobs closest to revenue right now: outreach and proof.
+Use `internal/ENGRAM_CORE_AGENTS.txt` with `skills/engram-execution-coordinator/SKILL.md`, `skills/engram-outbound-commander/SKILL.md`, and `skills/engram-proof-architect/SKILL.md` when the goal is to focus on the first-client jobs that matter right now: sequence discipline, outreach, and proof.

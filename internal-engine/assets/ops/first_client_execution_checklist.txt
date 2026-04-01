@@ -1,0 +1,19 @@
+ENGRAM FIRST CLIENT EXECUTION CHECKLIST
+
+1. Lock the compact report as the live proof asset.
+2. Populate the 50-agency lead batch.
+3. Finalize the first-client message pack.
+4. Finalize objection handling and discovery call script.
+5. Set booking path live.
+6. Set manual payment path live.
+7. Keep intake form to minimum required fields.
+8. Send first outreach batch.
+9. Log every reply.
+10. Only change the opener, report, or offer after real responses.
+
+Readiness gate
+- report understood in under 2 minutes
+- opener fits in 1 to 2 short lines
+- booking and payment are not blockers
+- 50 leads have personalization hooks
+- first outbound is sent before any more system-building resumes

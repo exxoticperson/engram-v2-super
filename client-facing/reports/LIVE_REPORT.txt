@@ -1,0 +1,11 @@
+LIVE REPORT STATUS
+
+Canonical live proof asset:
+- `engram_client_answer_compact.html`
+
+Reference-only report:
+- `../../archive/reference-reports/engram_flagship_diagnostic_report.html`
+
+Rule:
+- send the compact report in outreach
+- keep the longer report as internal reference unless it is explicitly needed

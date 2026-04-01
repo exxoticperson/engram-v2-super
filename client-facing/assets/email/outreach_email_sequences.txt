@@ -1,40 +1,36 @@
 ENGRAM OUTREACH EMAIL SEQUENCES
 
 First Touch
-Subject: Where your ads lose the viewer before spend
+Subject: Quick note on one of your beauty ads
 
 Hi [First Name],
 
-Quick note - I noticed [personalization hook].
+I broke down one of [agency name]'s recent beauty ads and found the exact point where it starts losing attention before the product really lands.
 
-We run pre-launch creative diagnostics for agencies on Meta and TikTok. Before an ad goes live, we break down where it loses the viewer, why it happens, and what is worth fixing before budget is behind it.
-
-If useful, I can send the sample audit so you can see the format.
+If you want, I can send the breakdown.
 
 [Your Name]
 
 Follow-Up 1
-Subject: Re: where your ads lose the viewer before spend
+Subject: Re: quick note on one of your beauty ads
 
 Hi [First Name],
 
-Following up because we keep seeing the same issue in [category] creative: a strong visual open, but weak hold through the reveal.
+Following up once.
 
-That is exactly the kind of issue ENGRAM is built to catch before launch.
+The interesting part was not the score. It was seeing exactly where the middle softened and why the close never really pressed the action.
 
-If it helps, I can send over the sample audit.
+If helpful, I can send it over.
 
 [Your Name]
 
 Follow-Up 2
-Subject: Re: where your ads lose the viewer before spend
+Subject: Re: quick note on one of your beauty ads
 
 Hi [First Name],
 
 Last note from me.
 
-We recently mapped a beauty ad that looked premium but lost the viewer before the product really landed. The useful part was not the score - it was the recut path.
-
-If you want the sample, I can send it over.
+If you want the breakdown, I can send it.
 
 [Your Name]

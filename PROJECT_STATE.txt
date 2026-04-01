@@ -5,17 +5,17 @@ This file captures the current project state in a clean form so a fresh Codex se
 
 ## Current mission
 
-ENGRAM is in build-complete, execution-next mode.
+ENGRAM is in build-stopped, execution-live mode.
 
 The immediate goal is not more architecture.
 
 The immediate goal is:
 
-1. tighten the flagship sample audit
-2. use it as the proof asset
-3. run outreach
-4. get calls
-5. close clients
+1. lock the compact report as the live proof asset
+2. use it in outreach
+3. run the first 50-agency batch
+4. get replies and calls
+5. close the first paid pilot
 
 ## Current business definition
 
@@ -89,13 +89,15 @@ The skill stack now includes:
 
 ### Core agents
 
-Two revenue-core agents were defined:
+Three current execution agents were defined:
 
-1. Outbound Commander
-2. Proof Architect
+1. Execution Coordinator
+2. Outbound Commander
+3. Proof Architect
 
-They are the most important agents right now because they map directly to:
+They map directly to:
 
+- sequence discipline
 - outreach
 - proof
 
@@ -120,28 +122,27 @@ Support and meta layers also exist:
 
 ## What is still unfinished
 
-1. Final audit/report wording
-   The current sample-audit template is strong, but still waiting for the final diagnostic report to be applied.
+1. Real contact enrichment and outbound activity
+   The first 50-agency batch now exists, but direct contacts, recent ad links, and reply history still need live population.
 
-2. Flagship sample audit
-   The system exists, but the actual best-in-class proof asset still needs a final polish pass.
+2. Booking path activation
+   The booking spec exists, but the live link still has to be turned on outside the repo.
 
-3. Real target data
-   Some assets still contain starter rows and should be replaced with real leads, real reviews, and real outreach runs.
+3. Manual payment path activation
+   The repo now has the non-Stripe fallback path, but the actual Wise or bank details still need to be plugged in.
 
-4. Minor repository hygiene
-   There may still be a stale or empty skill folder from a merge that can be removed later.
+4. Live outreach results
+   The system is prepared for execution, but the market has not answered yet.
 
 ## Current priority order
 
 If a fresh operator or Codex session is deciding what to do next, use this order:
 
-1. ingest the latest audit preview or diagnostic report
-2. improve the sample audit into the flagship proof asset
-3. choose one real agency or a small lead batch
-4. run the Outbound Commander workflow
-5. send outreach
-6. track replies and refine from reality
+1. personalize and enrich the 50-agency batch
+2. send the compact report through the first-client message pack
+3. activate booking and manual payment
+4. log replies in the funnel diagnosis file
+5. refine only the weakest exposed layer
 
 ## Current risks
 
@@ -166,4 +167,4 @@ All future work should be judged against whether it helps those outcomes soon.
 
 ## Recommended startup prompt
 
-> Read `START_HERE.md`, `PROJECT_STATE.md`, and `DECISIONS_LOG.md`. Then read `client-facing/START_SELLING.md` and `internal-engine/SKILL.md` plus the internal agent files needed to understand the live ENGRAM system. After that, help me execute the next revenue-focused step rather than expanding architecture.
+> Read `START_HERE.txt`, `PROJECT_STATE.txt`, and `DECISIONS_LOG.txt`. Then read `client-facing/START_SELLING.txt` and `internal-engine/SKILL.md` plus the internal agent files needed to understand the live ENGRAM system. After that, help me execute the next revenue-focused step rather than expanding architecture.

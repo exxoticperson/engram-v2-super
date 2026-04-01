@@ -1,2 +1,2 @@
-lead_id,first_name,last_name,title,agency,linkedin_url,email,client_category,spend_tier,stage,first_contact_date,last_contact_date,next_follow_up,channel,pain_signal,personalization_hook,sample_sent,call_booked,call_date,call_notes,pilot_offered,pilot_price,pilot_status,retainer_status,notes
-LEAD-001,,,,,,,,SOURCED,,,,,,,,No,No,,,No,,Not offered,Not started,
+lead_id,agency,website,contact_name,target_role,email,brand_focus,fit_tier,pain_hook,personalization_hook,channel,status,sent_date,last_touch_date,next_action,next_action_date,report_sent,call_booked,pilot_offered,pilot_status,notes
+LEAD-001,,,,,,,,,,,QUEUED,,,Research target,,,No,No,No,Not offered,

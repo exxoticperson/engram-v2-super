@@ -32,19 +32,19 @@ Use `archive/` only for reference.
 
 Read these in order:
 
-1. `START_HERE.md`
-2. `PROJECT_STATE.md`
-3. `DECISIONS_LOG.md`
-4. `client-facing/START_SELLING.md`
+1. `START_HERE.txt`
+2. `PROJECT_STATE.txt`
+3. `DECISIONS_LOG.txt`
+4. `client-facing/START_SELLING.txt`
 5. `internal-engine/SKILL.md`
-6. `internal-engine/ENGRAM_CORE.md`
-7. `client-facing/ENGRAM_OFFER.md`
-8. `internal-engine/ENGRAM_EXECUTION.md`
-9. `client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`
-10. `client-facing/ENGRAM_CONTRACTS.md`
-11. `internal-engine/internal/ENGRAM_CORE_AGENTS.md`
-12. `internal-engine/internal/ENGRAM_AGENTIC_EXECUTION.md`
-13. `internal-engine/internal/ENGRAM_OVERSIGHT_AGENT.md`
+6. `internal-engine/ENGRAM_CORE.txt`
+7. `client-facing/ENGRAM_OFFER.txt`
+8. `internal-engine/ENGRAM_EXECUTION.txt`
+9. `client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt`
+10. `client-facing/ENGRAM_CONTRACTS.txt`
+11. `internal-engine/internal/ENGRAM_CORE_AGENTS.txt`
+12. `internal-engine/internal/ENGRAM_AGENTIC_EXECUTION.txt`
+13. `internal-engine/internal/ENGRAM_OVERSIGHT_AGENT.txt`
 
 Then inspect:
 
@@ -80,7 +80,7 @@ The repo contains:
 - agentic workflow and skill-R&D skills
 - transferred and adapted "superpower" skills that fit ENGRAM
 - business oversight skill
-- two core project agents
+- three current execution agents
 - design-language and client-experience design skills
 - a guarded token-efficiency skill
 
@@ -106,9 +106,19 @@ This bundle has already been pushed to GitHub as:
 
 `exxoticperson/engram-v2-super`
 
-## The two core agents
+## The current execution agents
 
-These are the two agents closest to revenue right now:
+These are the three agents that matter most right now:
+
+### 0. Execution Coordinator
+
+Owns:
+
+- first-client sequence discipline
+- deliverable readiness
+- lead-batch progress
+- booking, intake, and payment readiness
+- reply review logging
 
 ### 1. Outbound Commander
 
@@ -144,42 +154,39 @@ The next bottleneck is not more system-building.
 
 The next bottleneck is:
 
-- tightening the flagship sample audit
-- selecting or validating a design direction for proof assets
-- running outreach on a real target batch
+- enriching and working the first 50-agency batch
+- sending the compact report as the proof asset
+- getting market feedback from real outreach
 
 ## What is still unfinished
 
 These items are intentionally not fully locked yet:
 
-1. The final audit/report wording
-   The current sample audit template is a strong baseline, but the final diagnostic report still needs to be applied.
+1. Real contact enrichment
+   The first batch exists, but direct contact discovery and recent ad links still need live work.
 
-2. The flagship sample audit asset
-   The structure exists, but the actual best-in-class client-facing proof asset still needs a final pass.
+2. Live booking and payment
+   The instructions are in the repo, but the real-world links and details still need to be turned on.
 
-3. Real data in the operator files
-   Some CSVs still contain placeholder starter rows and should be populated with real targets, real reviews, and real outreach runs.
-
-4. Minor tree cleanup
-   There may be a stale empty skill folder from a merge. It does not affect operation, but can be removed later.
+3. Real outreach data
+   The reply log is empty until the first batch is sent.
 
 ## What to do next
 
 If the goal is revenue now, do this in order:
 
-1. Ingest the latest diagnostic report or audit preview
-2. Upgrade the sample audit into the flagship proof asset
-3. Pick one real agency or a small lead batch
-4. Run the Outbound Commander workflow
+1. Read `client-facing/START_SELLING.txt`
+2. Use `client-facing/reports/engram_client_answer_compact.html` as the live proof asset
+3. Work from `internal-engine/assets/ops/lead_batch_001.csv`
+4. Use `client-facing/assets/sales/first_client_message_pack.txt`
 5. Send outreach
-6. Track replies and improve from reality, not from theory
+6. Track replies in `internal-engine/assets/ops/reply_review_log.csv`
 
 ## Recommended startup prompt for a fresh Codex session
 
 Use something like this:
 
-> Read `START_HERE.md`, `PROJECT_STATE.md`, and `DECISIONS_LOG.md`, then read `client-facing/START_SELLING.md` and `internal-engine/SKILL.md`. After that, inspect the client-facing layer and the internal-engine layer, summarize where the project stands, and help me execute the next revenue-focused step.
+> Read `START_HERE.txt`, `PROJECT_STATE.txt`, and `DECISIONS_LOG.txt`, then read `client-facing/START_SELLING.txt` and `internal-engine/SKILL.md`. After that, inspect the client-facing layer and the internal-engine layer, summarize where the project stands, and help me execute the next revenue-focused step.
 
 ## Ground truth rule
 

@@ -1,5 +1,23 @@
 ENGRAM CLIENT EMAILS
 
+Pilot Close / Intake Request
+Hi [Name],
+
+Good talking earlier.
+
+The best next step is to run a pilot on [brand / account].
+
+Send over:
+- ad link or file
+- landing page
+- objective
+- biggest concern with the cut
+- deadline
+
+Once I have that, I will confirm timing and start.
+
+[Name]
+
 Intake Confirmation
 Hi [Name],
 
@@ -24,6 +42,20 @@ Loom: [link]
 Debrief: [link]
 
 The biggest finding: [one sentence]
+
+[Name]
+
+Invoice Email
+Hi [Name],
+
+Sharing the invoice for the ENGRAM pilot below.
+
+Service: [service]
+Amount: [amount]
+Due: [date]
+Payment: [Wise link / bank transfer details]
+
+Once payment is in, I will confirm the delivery window immediately.
 
 [Name]
 

@@ -1,0 +1,27 @@
+LEAD ENRICHMENT CHECKLIST
+
+For each target, gather:
+- decision-maker name
+- role
+- direct email
+- LinkedIn profile
+- Instagram handle if relevant
+- phone number if relevant
+- one recent beauty or skincare ad, case study, or paid-social signal
+- one pain hook
+- one personalization hook
+- best first channel
+
+Preferred target roles
+- founder
+- managing director
+- head of growth
+- paid social lead
+- creative strategy lead
+
+Channel choice rules
+- email first if direct email is public or easy to infer safely
+- LinkedIn first if the person is active there
+- Instagram first only for social-first creative shops
+- Loom only for highest-fit targets
+- cold call only for small founder-led agencies

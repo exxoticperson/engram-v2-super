@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENGRAM | Client Answer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #010101;
+      --surface: rgba(255,255,255,0.045);
+      --surface-strong: rgba(255,255,255,0.07);
+      --text: #f4efe7;
+      --muted: rgba(244,239,231,0.66);
+      --muted-soft: rgba(244,239,231,0.42);
+      --line: rgba(255,255,255,0.08);
+      --accent: #d9c2a0;
+      --good: #8ef0ba;
+      --bad: #ef8a8a;
+      --shadow: 0 34px 80px rgba(0,0,0,0.42);
+      --max: 1380px;
+      --gutter: clamp(20px, 3vw, 38px);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Manrope", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255,255,255,0.03), transparent 22%),
+        radial-gradient(circle at 84% 18%, rgba(217,194,160,0.05), transparent 20%),
+        linear-gradient(180deg, #020202, #000000 42%, #030303 100%);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+      opacity: 0.2;
+    }
+
+    .shell { position: relative; z-index: 1; }
+    .section {
+      padding: clamp(24px, 3vw, 36px) var(--gutter) clamp(54px, 7vw, 96px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    .meta {
+      font-size: 11px;
+      line-height: 1.2;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .display, .headline {
+      margin: 0;
+      font-family: var(--serif);
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+    }
+    .display { font-size: clamp(74px, 13vw, 180px); }
+    .headline { font-size: clamp(38px, 5vw, 74px); }
+    .copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(15px, 1.22vw, 17px);
+      line-height: 1.8;
+    }
+    .hero {
+      min-height: 86svh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.85fr;
+      gap: clamp(28px, 4vw, 64px);
+      align-items: end;
+    }
+    .hero-art {
+      position: relative;
+      min-height: 460px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 58% 22%, rgba(255,255,255,0.16), transparent 14%),
+        radial-gradient(circle at 48% 54%, rgba(142,240,186,0.08), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01) 42%, rgba(0,0,0,0.28));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 22px),
+        linear-gradient(90deg, transparent, rgba(217,194,160,0.18), transparent);
+      opacity: 0.5;
+    }
+    .hero-art svg {
+      position: absolute;
+      inset: 16% auto auto -4%;
+      width: 78%;
+      height: 200px;
+      opacity: 0.75;
+    }
+    .hero-art path {
+      fill: none;
+      stroke: rgba(142,240,186,0.86);
+      stroke-width: 2;
+      filter: drop-shadow(0 0 10px rgba(142,240,186,0.15));
+    }
+    .stamp-grid, .summary-grid, .three-grid, .metric-grid {
+      display: grid;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .stamp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 28px; }
+    .summary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .metric-grid { grid-template-columns: 1.1fr 0.9fr; gap: 24px; background: transparent; }
+    .cell, .card, .panel {
+      background: linear-gradient(180deg, var(--surface-strong), var(--surface));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .cell, .card { padding: 18px; }
+    .value {
+      margin-top: 12px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .verdict-line {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      max-width: 880px;
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .snapshot {
+      position: relative;
+      min-height: 440px;
+      overflow: hidden;
+    }
+    .snapshot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(229,220,205,0.14), rgba(120,112,106,0.06) 34%, rgba(8,8,8,0.72) 74%),
+        radial-gradient(circle at 70% 28%, rgba(255,255,255,0.18), transparent 14%),
+        radial-gradient(circle at 54% 56%, rgba(240,219,184,0.18), transparent 18%),
+        radial-gradient(circle at 28% 40%, rgba(255,255,255,0.07), transparent 20%);
+    }
+    .snapshot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(3,3,3,0.86), rgba(3,3,3,0.08) 46%, rgba(3,3,3,0.76));
+    }
+    .snapshot-copy, .snapshot-badge {
+      position: absolute;
+      z-index: 2;
+    }
+    .snapshot-badge {
+      top: 22px;
+      left: 22px;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(217,194,160,0.28);
+    }
+    .snapshot-copy {
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      max-width: 620px;
+    }
+    .curve-panel { padding: 24px; }
+    .curve-box {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(142,240,186,0.05) 0 20%, transparent 20% 100%),
+        linear-gradient(180deg, transparent 0 58%, rgba(239,138,138,0.05) 58% 100%),
+        rgba(4,4,4,0.98);
+    }
+    .curve-box svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .curve-grid line {
+      stroke: rgba(255,255,255,0.08);
+      stroke-width: 1;
+    }
+    .curve-grid .fine {
+      stroke: rgba(255,255,255,0.04);
+      stroke-dasharray: 2 8;
+    }
+    .curve-fill { fill: url(#curveFill); }
+    .curve-path {
+      fill: none;
+      stroke: var(--good);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 16px rgba(142,240,186,0.22));
+    }
+    .threshold {
+      stroke: rgba(217,194,160,0.8);
+      stroke-width: 2;
+      stroke-dasharray: 6 10;
+    }
+    .point {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: #050505;
+      border: 2px solid var(--good);
+      box-shadow: 0 0 18px rgba(142,240,186,0.25);
+    }
+    .curve-label {
+      position: absolute;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5,5,5,0.84);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .axis {
+      position: absolute;
+      color: var(--muted-soft);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .keep { color: var(--good); }
+    .cut { color: var(--bad); }
+    .do { color: var(--accent); }
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .process .card { min-height: 160px; }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+      .summary-grid,
+      .three-grid,
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding-bottom: 64px; }
+      .hero-art { min-height: 360px; }
+      .summary-grid,
+      .three-grid,
+      .stamp-grid,
+      .process {
+        grid-template-columns: 1fr;
+      }
+      .curve-box { min-height: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="section">
+      <div class="wrap hero">
+        <div>
+          <div class="row">
+            <div class="meta">ENGRAM / Client Answer / Confidential</div>
+            <div class="meta">Lumae Barrier Serum / Beauty Paid Social</div>
+          </div>
+          <h1 class="display">ENGRAM</h1>
+          <p class="headline" style="max-width: 840px; margin-top: 10px;">Creative Diagnostic</p>
+          <p class="copy" style="max-width: 620px; margin-top: 20px;">A clear client answer: what is working, what is failing, what to keep, what to cut, and what to change before launch.</p>
+          <div class="stamp-grid">
+            <div class="cell">
+              <div class="meta">Brand</div>
+              <div class="value">Lumae Barrier Serum</div>
+            </div>
+            <div class="cell">
+              <div class="meta">Format</div>
+              <div class="value">Beauty UGC Paid Social</div>
+            </div>
+            <div class="cell">
+              <div class="meta">Verdict</div>
+              <div class="value">Conditional Go</div>
+            </div>
+            <div class="cell">
+              <div class="meta">Confidence</div>
+              <div class="value">Medium</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 800 220" aria-hidden="true">
+            <path d="M0 164 C84 124, 136 62, 206 76 S340 186, 434 152 S554 54, 640 78 S742 178, 800 144"></path>
+            <path d="M0 172 C90 148, 142 90, 212 102 S352 194, 442 168 S560 84, 648 102 S746 186, 800 160"></path>
+            <path d="M0 182 C94 170, 146 128, 214 138 S356 200, 444 190 S566 134, 650 140 S748 196, 800 176" style="opacity:.28"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="row">
+          <div class="meta">01 / Verdict</div>
+          <div class="meta">What This Means</div>
+        </div>
+        <div class="summary-grid">
+          <div class="cell">
+            <div class="meta">Hook</div>
+            <div class="value">Soft</div>
+          </div>
+          <div class="cell">
+            <div class="meta">Hold</div>
+            <div class="value">Fragile</div>
+          </div>
+          <div class="cell">
+            <div class="meta">Close</div>
+            <div class="value">Weak</div>
+          </div>
+          <div class="cell">
+            <div class="meta">Overall</div>
+            <div class="value">Below Category Baseline</div>
+          </div>
+        </div>
+        <div class="verdict-line">The ad introduces the product. It never earns enough attention to make the close matter.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap metric-grid">
+        <div>
+          <div class="row">
+            <div class="meta">02 / Asset Read</div>
+            <div class="meta">What We Saw</div>
+          </div>
+          <div class="panel snapshot">
+            <div class="snapshot-badge">
+              <div class="dot"></div>
+              <div class="meta">Indexed Frame</div>
+            </div>
+            <div class="snapshot-copy">
+              <div class="meta">Caption</div>
+              <p class="headline" style="font-size: clamp(32px, 3.7vw, 52px); margin-top: 8px;">A premium beauty serum ad that looks polished, but stays too calm to build urgency.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div class="meta">03 / Keep / Cut / Change</div>
+            <div class="meta">Decision Read</div>
+          </div>
+          <div class="three-grid">
+            <div class="card">
+              <div class="meta keep">Keep</div>
+              <p class="copy" style="margin-top: 12px;">Luxury framing, clean product visibility, skin texture credibility.</p>
+            </div>
+            <div class="card">
+              <div class="meta cut">Cut</div>
+              <p class="copy" style="margin-top: 12px;">Soft opening, repetitive middle beats, passive benefit phrasing.</p>
+            </div>
+            <div class="card">
+              <div class="meta do">Change</div>
+              <p class="copy" style="margin-top: 12px;">Build a sharper problem state, introduce contrast sooner, and end with action pressure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="row">
+          <div class="meta">04 / Attention Curve</div>
+          <div class="meta">Where It Breaks</div>
+        </div>
+        <div class="panel curve-panel">
+          <p class="copy" style="max-width: 760px; margin-bottom: 20px;">The curve starts well enough to signal beauty relevance, then drops below the pressure threshold before the product earns a compelling reason to keep watching.</p>
+          <div class="curve-box">
+            <svg viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="curveFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(142,240,186,0.22)"></stop>
+                  <stop offset="55%" stop-color="rgba(142,240,186,0.08)"></stop>
+                  <stop offset="100%" stop-color="rgba(142,240,186,0.01)"></stop>
+                </linearGradient>
+              </defs>
+              <g class="curve-grid">
+                <line x1="0" y1="120" x2="1600" y2="120"></line>
+                <line x1="0" y1="260" x2="1600" y2="260"></line>
+                <line x1="0" y1="400" x2="1600" y2="400"></line>
+                <line x1="0" y1="540" x2="1600" y2="540"></line>
+                <line x1="0" y1="680" x2="1600" y2="680"></line>
+                <line class="fine" x1="160" y1="0" x2="160" y2="800"></line>
+                <line class="fine" x1="320" y1="0" x2="320" y2="800"></line>
+                <line class="fine" x1="480" y1="0" x2="480" y2="800"></line>
+                <line class="fine" x1="640" y1="0" x2="640" y2="800"></line>
+                <line class="fine" x1="800" y1="0" x2="800" y2="800"></line>
+                <line class="fine" x1="960" y1="0" x2="960" y2="800"></line>
+                <line class="fine" x1="1120" y1="0" x2="1120" y2="800"></line>
+                <line class="fine" x1="1280" y1="0" x2="1280" y2="800"></line>
+                <line class="fine" x1="1440" y1="0" x2="1440" y2="800"></line>
+              </g>
+              <line class="threshold" x1="0" y1="412" x2="1600" y2="412"></line>
+              <path class="curve-fill" d="M0,168 C120,164 180,196 252,240 S422,318 560,352 S760,414 880,494 S1050,620 1178,644 S1374,624 1600,706 L1600,800 L0,800 Z"></path>
+              <path class="curve-path" d="M0,168 C120,164 180,196 252,240 S422,318 560,352 S760,414 880,494 S1050,620 1178,644 S1374,624 1600,706"></path>
+            </svg>
+            <div class="axis" style="left: 18px; top: 18px; writing-mode: vertical-rl; transform: rotate(180deg);">Attention</div>
+            <div class="axis" style="left: 18px; right: 18px; bottom: 16px; display: flex; justify-content: space-between;">
+              <span>0s</span><span>3s</span><span>6s</span><span>9s</span><span>12s</span><span>15s</span>
+            </div>
+            <div class="point" style="left: 16%; top: 30%;"></div>
+            <div class="point" style="left: 55%; top: 60%;"></div>
+            <div class="point" style="left: 86%; top: 79%;"></div>
+            <div class="curve-label" style="left: 8%; top: 14%;">Soft Hook</div>
+            <div class="curve-label" style="left: 43%; top: 52%;">Middle Loses Force</div>
+            <div class="curve-label" style="left: 77%; top: 70%;">Close Fades</div>
+            <div class="curve-label" style="right: 24px; top: 47%;">Threshold</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="row">
+          <div class="meta">05 / What We Did With The Data</div>
+          <div class="meta">Client-Friendly Process</div>
+        </div>
+        <div class="process">
+          <div class="card">
+            <div class="meta">01 / Read The Ad</div>
+            <p class="copy" style="margin-top: 12px;">We looked at the opening, the middle, the product reveal, the pacing, and the ending pressure.</p>
+          </div>
+          <div class="card">
+            <div class="meta">02 / Find The Drops</div>
+            <p class="copy" style="margin-top: 12px;">We mapped where attention weakens and where the message stops earning the next second.</p>
+          </div>
+          <div class="card">
+            <div class="meta">03 / Separate What Stays</div>
+            <p class="copy" style="margin-top: 12px;">We kept the parts that help the ad feel premium and removed the parts that soften momentum.</p>
+          </div>
+          <div class="card">
+            <div class="meta">04 / Rebuild The Cut</div>
+            <p class="copy" style="margin-top: 12px;">We turned the diagnosis into a short, direct list of changes for the next version of the ad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="border-bottom: none;">
+      <div class="wrap">
+        <div class="row">
+          <div class="meta">06 / Recommended Changes</div>
+          <div class="meta">Client Answer</div>
+        </div>
+        <div class="three-grid">
+          <div class="card">
+            <div class="meta">Change 01</div>
+            <p class="copy" style="margin-top: 12px;">Open on the skin problem, not the bottle. Make the first second feel necessary.</p>
+          </div>
+          <div class="card">
+            <div class="meta">Change 02</div>
+            <p class="copy" style="margin-top: 12px;">Add contrast in the middle. Do not let every frame feel equally calm.</p>
+          </div>
+          <div class="card">
+            <div class="meta">Change 03</div>
+            <p class="copy" style="margin-top: 12px;">End with a reason to act now. The close should move behavior, not just describe benefit.</p>
+          </div>
+        </div>
+        <p class="headline" style="font-size: clamp(34px, 4vw, 58px); margin-top: 36px; max-width: 980px;">The ad has premium ingredients. It needs sharper pressure.</p>
+        <p class="copy" style="margin-top: 14px; max-width: 920px;">ENGRAM diagnostics identify likely attention failures and comprehension gaps. They are decision-support signals designed to improve launch selection and reduce creative waste. They are not guarantees of conversion rate, ROAS, or sales outcomes.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

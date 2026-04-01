@@ -1,0 +1,40 @@
+ENGRAM LOOM WALKTHROUGH TEMPLATE
+
+Target length
+- 2 to 4 minutes
+
+Rules
+- do not explain the backend
+- do not talk like a platform demo
+- walk the client through the diagnosis
+- end with the repair path
+
+Talk track
+
+1. Open
+Quick walkthrough of the ad breakdown. The main thing to watch is where the attention drops before the product really lands.
+
+2. Verdict
+The ad is [GO / CONDITIONAL GO / NO GO].
+
+The reason is simple: [one-line diagnosis].
+
+3. Attention Signature
+This is the key moment. The first major drop happens at [timestamp].
+
+From there, the ad [loses pressure / flattens / delays the payoff].
+
+4. Breakpoints
+The top three issues are:
+- [breakpoint one]
+- [breakpoint two]
+- [breakpoint three]
+
+5. Fixes
+The fixes worth testing first are:
+- [fix one]
+- [fix two]
+- [fix three]
+
+6. Close
+If useful, I can run this properly on one of your live ads and turn it into a pre-launch repair brief before spend.

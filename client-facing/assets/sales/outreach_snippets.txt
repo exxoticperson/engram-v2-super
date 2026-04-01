@@ -1,30 +1,27 @@
 ENGRAM OUTREACH SNIPPETS
 
 Rules
-- Keep DMs under 100 words
+- Keep DMs under 80 words
 - Do not offer a free audit
-- Do not mention internal models or research tooling
-- Lead with diagnosis, repair, and avoided waste
+- Do not mention internal models, AI, or research tooling
+- Lead with the finding, not the system
+- Curiosity first, report second, offer third
 
 DM Template A
-Hey [Name] - noticed you've been talking about [creative fatigue / hook rates / testing volume].
+Hey [Name] - I broke down one of [agency name]'s beauty ads and found exactly where it starts losing attention before the product lands.
 
-We run pre-launch diagnostics on short-form ads for Meta and TikTok. We flag where a creative loses the viewer, why it happens, and what is worth fixing before media spend.
-
-For beauty and skincare especially, that first hook window is brutal.
-
-Want me to send the sample audit so you can see the format?
+Want me to send it over?
 
 DM Template B
-Hey [Name] - saw [agency name] is already using tools like [tool name] for creative analysis.
+Hey [Name] - quick one: I mapped where one of your recent ads drops in the middle and why the close softens before spend.
 
-ENGRAM covers the pre-launch side: where the ad breaks, why, and what to recut before it goes live.
+If you want, I can send the breakdown.
 
-Happy to send the sample audit if useful.
+Send-Report Line
+Here it is. Pay attention to the first drop and the ending. Those are the two parts worth fixing first.
+
+Offer Line
+If useful, I can do this properly on one of your live ads and turn it into a pre-launch repair brief your team can actually use.
 
 Follow-Up
-Hey [Name] - following up on the creative audit note.
-
-I built a sample audit on a beauty ad recently. It shows exactly how we break down the hook, reveal, and repair path before launch.
-
-If you want, I can send it over.
+Wanted to bump this once because the breakdown is specific. If the finding feels off, ignore it. If it feels right, I can show you how we'd use this before spend.

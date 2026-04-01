@@ -1,0 +1,26 @@
+ENGRAM CHANNEL SEND ASSETS
+
+EMAIL
+- Use `first_client_message_pack.txt`
+- Use `outreach_email_sequences.txt`
+- Attach or link the compact report only after a reply
+
+LINKEDIN
+- Use the opener from `first_client_message_pack.txt`
+- Keep it under 2 short lines
+- If they reply, send the report or ask for the best email
+
+INSTAGRAM
+- Use a shorter opener than LinkedIn
+- Mention one concrete finding
+- Ask if they want the breakdown
+
+LOOM
+- Use `loom_walkthrough_template.txt`
+- Keep it under 90 seconds for cold outreach
+- Send only for top-tier targets
+
+CALL
+- Use `discovery_call_script.txt`
+- Goal is not to explain ENGRAM
+- Goal is to move them to the report and pilot fit

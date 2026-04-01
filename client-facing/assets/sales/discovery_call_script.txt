@@ -1,21 +1,26 @@
 ENGRAM DISCOVERY CALL SCRIPT
 
 Discovery
-- Walk me through how your team currently decides which creative goes into spend.
-- What does your pre-launch testing process look like right now?
-- What creative failure hurt the most in the last 90 days?
-- Do you have a way to diagnose the ad before money is behind it?
+- Walk me through how your team decides which creative goes into spend.
+- Where are weak ads slipping through right now?
+- When a creative fails, where do you usually find out: hook, middle, or close?
+- Do you have any way to diagnose the ad before money is behind it?
 
 Show Phase
 - Pull up the sample audit
-- Walk one concrete diagnosis
-- Explain the repair path
-- Keep methodology language simple
+- Walk one concrete breakpoint
+- Explain the repair path in plain language
+- Keep the focus on what changes, not on how ENGRAM works
 
 Close
 - Does this solve a real problem for your team right now?
 - Which current client account is the best fit for a pilot?
-- Pilot offer: $2,500 for 1 to 2 ads, full report, debrief call, one revision round
+- Pilot offer: $2,500 for 1 to 2 ads, compact report, Loom, debrief call, one revision round
+
+Objection Handling
+- If they already use another tool: "That is fine. ENGRAM sits earlier. It is for where the ad breaks before spend and what to fix before launch."
+- If they ask about accuracy: "The useful part is not pretending to predict outcomes. The useful part is isolating likely weak points before money is behind the cut."
+- If they want pricing first: "Pilot is $2,500. The point is to see whether this helps your team catch weak creative earlier and make faster launch calls."
 
 Retainer Trigger
 Based on how your team is using this, the most efficient setup is to make ENGRAM part of your launch process. Every ad gets scored before it goes live, monthly trend context is included, and turnaround stays fast. If useful, I can put that into a monthly scope for you.

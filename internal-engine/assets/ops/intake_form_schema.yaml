@@ -1,6 +1,6 @@
 version: 1
 name: ENGRAM Intake Form
-purpose: Capture the required inputs for a Pilot Audit, Pre-Flight Audit, or Pre-Production Screen.
+purpose: Capture the minimum required inputs to start a paid pilot or pre-flight audit without adding friction.
 submission_rules:
   clock_starts_when: all_required_inputs_received
   incomplete_submission_action: request_missing_inputs_and_pause_clock
@@ -13,6 +13,14 @@ fields:
     label: Agency or client name
     type: text
     required: true
+  - id: ad_asset
+    label: Ad file or public URL
+    type: file_or_url
+    required: true
+  - id: landing_page
+    label: Landing page URL
+    type: url
+    required: false
   - id: platform
     label: Platform
     type: select
@@ -21,65 +29,21 @@ fields:
       - Meta
       - TikTok
       - Both
-  - id: category
-    label: Product category
-    type: select
-    required: true
-    options:
-      - Beauty
-      - Skincare
-      - Fashion
-      - Supplements
-      - Fitness
-      - Other
-  - id: campaign_objective
+  - id: objective
     label: Campaign objective
-    type: select
+    type: text
     required: true
-    options:
-      - Cold traffic
-      - Retargeting
-      - UGC test
-      - Creator whitelist
-      - Other
-  - id: target_audience
-    label: Target audience
+  - id: current_issue
+    label: Biggest current concern
     type: textarea
     required: true
-  - id: ad_asset
-    label: Ad file or public URL
-    type: file_or_url
-    required: true
-  - id: ad_length_seconds
-    label: Ad length in seconds
-    type: number
-    required: true
-  - id: variant_count
-    label: Number of variants
-    type: number
-    required: true
-  - id: performance_data
-    label: Known performance data
-    type: textarea
-    required: false
-    notes: Include hook rate, hold rate, CTR, thumbstop rate, or other launch data if available.
-  - id: extra_context
-    label: Additional context for the analyst
-    type: textarea
-    required: false
-  - id: preproduction_inputs
-    label: Pre-production inputs
-    type: checklist
-    required: false
-    options:
-      - Script
-      - Storyboard
-      - Shot list
-      - Rough cut
-      - Creative brief
-  - id: shoot_date
-    label: Shoot date
+  - id: deadline
+    label: Decision deadline
     type: date
+    required: false
+  - id: extra_context
+    label: Extra context
+    type: textarea
     required: false
 delivery_defaults:
   pilot_audit:

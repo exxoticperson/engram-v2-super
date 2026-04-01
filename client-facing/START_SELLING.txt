@@ -1,0 +1,47 @@
+# START SELLING
+## What to use right now for first-client validation
+
+This folder is the live selling layer.
+
+Use it for:
+
+- the one report you send
+- the pilot one-pager
+- FAQ and objection handling
+- contract scopes
+- outreach copy
+- call and Loom talk tracks
+
+## Start here
+
+1. `reports/engram_client_answer_compact.html`
+2. `ENGRAM_PILOT_ONE_PAGER.txt`
+3. `ENGRAM_OFFER.txt`
+4. `ENGRAM_FAQ.txt`
+5. `ENGRAM_CONTRACTS.txt`
+6. `assets/sales/first_client_message_pack.txt`
+7. `assets/sales/objection_handling.txt`
+8. `assets/sales/loom_walkthrough_template.txt`
+9. `assets/sales/agency_positioning_angle.txt`
+10. `assets/sales/agency_pain_points.txt`
+11. `assets/sales/multi_channel_outreach_playbook.txt`
+12. `assets/sales/linkedin_followup_sequence.txt`
+13. `assets/sales/personalized_loom_outreach.txt`
+14. `assets/sales/public_insight_post.txt`
+
+## Current goal
+
+Do not expand architecture from this folder.
+
+Use this layer to:
+
+- send a compact proof asset
+- create curiosity
+- book calls
+- close the first paid pilot
+
+## Canonical rule
+
+- `reports/engram_client_answer_compact.html` is the live proof asset
+- `../archive/reference-reports/engram_flagship_diagnostic_report.html` is archived reference only
+- if a file helps sell, persuade, explain, de-risk, or close, it belongs here

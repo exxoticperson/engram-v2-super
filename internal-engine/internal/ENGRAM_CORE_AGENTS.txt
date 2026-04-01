@@ -1,7 +1,22 @@
 # ENGRAM Core Agents
-## The two agents closest to revenue right now
+## Revenue-core agents plus one execution coordinator
 
-These are the two core project agents to use during the current phase.
+These are the three agents that matter during the current phase.
+
+## 0. ENGRAM Execution Coordinator
+
+Purpose:
+
+- enforce the first-client sequence
+- track readiness
+- stop drift back into overbuilding
+
+Best use:
+
+- before sending anything
+- while setting up the lead batch
+- while clearing payment, intake, and booking blockers
+- while reviewing replies and next actions
 
 ## 1. ENGRAM Outbound Commander
 
@@ -53,7 +68,8 @@ Every handoff must use `assets/ops/agent_handoff_protocol.txt`.
 
 ## Priority
 
-During this phase, these two agents matter more than most other internal architecture. They directly support the only two things that matter right now:
+During this phase, these three agents matter more than most other internal architecture. They directly support the only three jobs that matter right now:
 
+- execution discipline
 - outreach
 - proof

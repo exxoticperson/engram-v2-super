@@ -1,0 +1,21 @@
+ENGRAM BOOKING SETUP
+
+Use the fastest option you can activate:
+- Cal.com
+- Calendly
+
+Create one booking type only:
+- ENGRAM Audit Review
+- 20 minutes
+
+Description
+Review one ad breakdown, show where the creative loses attention, and discuss whether a pilot makes sense.
+
+Collect only:
+- name
+- work email
+- agency
+- ad link if available
+
+Rule
+- booking exists to remove friction, not to look sophisticated

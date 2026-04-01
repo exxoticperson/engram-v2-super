@@ -49,7 +49,7 @@ Adjust certainty language to the confidence level.
 
 ## Required report structure
 
-Follow the live template in `ENGRAM_SAMPLE_AUDIT_TEMPLATE.md`.
+Follow the live template in `ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt`.
 
 The required sequence is:
 

@@ -1,0 +1,91 @@
+# ENGRAM Sample Audit Template
+## Compact live baseline for first-client validation
+
+This is the current report structure to sell and deliver with now. Keep it compact, sharp, and easy to forward.
+
+The live proof asset is:
+
+- `reports/engram_client_answer_compact.html`
+
+Use this template to populate the content inside that format.
+
+## Section 1: Cover and Verdict
+
+- Brand
+- Platform
+- Category
+- Date
+- Verdict: GO / CONDITIONAL GO / NO GO
+- One-line conclusion
+
+Example:
+
+> The ad introduces the product. It never earns attention.
+
+## Section 2: Attention Signature
+
+Show only the high-value reading:
+
+- attention curve
+- threshold line
+- first major drop
+- risk zones
+- best moment
+- weakest moment
+
+Keep labels simple and timestamped.
+
+## Section 3: Performance Breakdown
+
+Use four client-readable scores only:
+
+- Hook
+- Hold
+- Reveal
+- Close
+
+For each:
+
+- score or rating
+- one hard conclusion
+
+Do not expose internal metric language here.
+
+## Section 4: Breakpoints
+
+Limit to the top three moments that matter.
+
+For each breakpoint:
+
+- timestamp
+- what fails
+- why it matters
+
+## Section 5: Fixes
+
+Limit to the top three fixes worth testing.
+
+For each fix:
+
+- what to change
+- where to change it
+- expected outcome
+
+## Section 6: Launch Recommendation
+
+- final recommendation
+- what can stay
+- what must change before launch
+- one-sentence next step
+- proof boundary
+
+## Confidence labels
+
+- HIGH: final cut plus context or performance data
+- MEDIUM: final cut without supporting data
+- LOW: rough cut or partial context
+- CONTEXT-LIMITED: description only
+
+## Required proof boundary
+
+> ENGRAM diagnostics identify likely attention failures and comprehension gaps before spend. They are a decision-support tool designed to improve launch choices and reduce creative waste. They are not guarantees of conversion rate, ROAS, or sales.

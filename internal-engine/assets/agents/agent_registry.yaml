@@ -1,6 +1,28 @@
 version: 1
 name: ENGRAM Core Agents
 agents:
+  - id: execution-coordinator
+    name: ENGRAM Execution Coordinator
+    skill: skills/engram-execution-coordinator/SKILL.md
+    mission: Keep the first-client stack moving in order and prevent ENGRAM from drifting back into architecture instead of execution.
+    owns:
+      - execution checklist discipline
+      - deliverable readiness tracking
+      - 50-lead batch progress
+      - booking and payment readiness
+      - intake readiness
+      - reply review logging
+      - next-action enforcement
+    core_assets:
+      - ../START_HERE.txt
+      - ../PROJECT_STATE.txt
+      - ../DECISIONS_LOG.txt
+      - assets/ops/first_client_execution_checklist.txt
+      - assets/ops/lead_batch_001.csv
+      - assets/ops/reply_review_log.csv
+      - assets/ops/booking_setup.txt
+      - assets/ops/manual_payment_workaround.txt
+      - assets/ops/agent_handoff_protocol.txt
   - id: outbound-commander
     name: ENGRAM Outbound Commander
     skill: skills/engram-outbound-commander/SKILL.md
@@ -16,8 +38,8 @@ agents:
       - call prep
     core_assets:
       - assets/ops/pipeline_template.csv
-      - assets/email/outreach_email_sequences.txt
-      - assets/email/outreach_email_automation.yaml
+      - ../client-facing/assets/email/outreach_email_sequences.txt
+      - ../client-facing/assets/email/outreach_email_automation.yaml
       - assets/ops/agent_handoff_protocol.txt
   - id: proof-architect
     name: ENGRAM Proof Architect
@@ -32,7 +54,7 @@ agents:
       - proof library quality
       - design-system application
     core_assets:
-      - ENGRAM_SAMPLE_AUDIT_TEMPLATE.md
+      - ../client-facing/ENGRAM_SAMPLE_AUDIT_TEMPLATE.txt
       - assets/design/design_direction_brief.txt
       - assets/design/design_language_research.csv
       - assets/design/artifact_design_backlog.csv

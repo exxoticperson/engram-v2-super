@@ -1,56 +1,61 @@
 # ENGRAM Execution
 ## Chronological operating order for the current phase
 
-## Phase 0: Foundation
+## Phase 0: Lock what is already good enough
 
-1. Lock the narrative
-2. Produce one elite sample audit
-3. Build a qualified lead list
-4. Set up the operator assets in `assets/`
+1. Lock the compact report as the live proof asset
+2. Lock the message pack
+3. Lock the pilot one-pager
+4. Keep only the minimum operator assets needed to send and close
 
 ### What "locked" means
 
-- One ICP
-- One pricing ladder
-- One disclaimer
-- One metric system
-- One client deliverable description
+- one ICP
+- one pricing ladder
+- one proof boundary
+- one live report
+- one outreach sequence
 
-## Phase 1: Validation sprint
+## Phase 1: First-client sprint
 
-Run this as a disciplined 14-day sprint.
+Run this as a disciplined sprint with zero new architecture.
 
-Use the two core agents throughout this phase:
+Use the three core agents throughout this phase:
 
+- Execution Coordinator for sequence discipline, readiness, and blockers
 - Outbound Commander for pipeline, research, personalization, and outbound
 - Proof Architect for the sample audit, report polish, and proof assets
 
-### Days 1 to 3
+### Step 1
 
-- Audit one real beauty or skincare ad
-- Turn it into a polished sample PDF
-- Build a 25-lead list of qualified agencies
+- lock one compact sendable report
+- build a 50-agency list of qualified targets
+- set the next action for each lead
 
-### Days 4 to 7
+### Step 2
 
-- Send 15 personalized outreach messages
-- Post one sample insight publicly
-- Track replies and patterns
+- finalize the first-client message pack
+- finalize objection handling
+- finalize the Loom walkthrough template
 
-### Days 8 to 10
+### Step 3
 
-- Follow up non-replies
-- Take discovery calls
-- Show the sample audit live instead of over-explaining the business
+- set a booking path
+- keep intake to minimum required fields
+- lock a manual payment path that does not block taking money
 
-### Days 11 to 14
+### Step 4
 
-- Close one paid pilot
-- Deliver within 48 hours
+- send the first outbound batch
+- track replies by funnel diagnosis bucket
+- follow up once
+- take calls
+- close one paid pilot
 
 ### Success gate
 
-- 20 or more qualified outreaches
+- 50 qualified agencies in the sheet
+- first outbound batch sent
 - 5 or more replies
 - 3 or more calls
 - 1 paid pilot
@@ -101,6 +106,7 @@ Priority loops:
 
 Core agent pairing:
 
+- Execution Coordinator owns order, readiness, and feedback discipline
 - Outbound Commander owns momentum toward conversations and closes
 - Proof Architect owns trust, polish, and proof quality
 
@@ -121,8 +127,13 @@ Use these as the working kit:
 
 - `assets/ops/intake_form_schema.yaml` for the intake build
 - `assets/ops/pipeline_template.csv` for lead tracking
+- `assets/ops/lead_batch_001.csv` for the live first batch
 - `assets/ops/audit_scorecard_template.csv` for audit logging
 - `assets/ops/benchmark_log_template.csv` for weekly benchmark notes
+- `assets/ops/first_client_execution_checklist.txt` for first-client discipline
+- `assets/ops/reply_review_log.csv` for funnel diagnosis logging
+- `assets/ops/booking_setup.txt` for the minimal calendar path
+- `assets/ops/manual_payment_workaround.txt` for the non-Stripe first-client payment path
 - `assets/agents/agent_registry.yaml` for core agent ownership
 - `assets/email/outreach_email_automation.yaml` for email sequence logic
 - `assets/ops/agent_handoff_protocol.txt` for workflow handoffs
@@ -134,8 +145,12 @@ Use these as the working kit:
 - `assets/design/design_language_research.csv` for premium design research
 - `assets/design/artifact_design_backlog.csv` for client-facing artifact upgrades
 - `assets/design/design_direction_brief.txt` for design direction
-- `assets/sales/outreach_snippets.txt` for outbound messaging
-- `assets/sales/discovery_call_script.txt` for sales calls
-- `assets/email/client_emails.txt` for operational email copy
-- `assets/email/outreach_email_sequences.txt` for outbound email sequences
-- `assets/contracts/` for scope templates
+- `../client-facing/assets/sales/first_client_message_pack.txt` for the live first-client sequence
+- `../client-facing/assets/sales/outreach_snippets.txt` for DM variants
+- `../client-facing/assets/sales/discovery_call_script.txt` for sales calls
+- `../client-facing/assets/sales/objection_handling.txt` for short replies
+- `../client-facing/assets/sales/loom_walkthrough_template.txt` for the optional walkthrough
+- `../client-facing/assets/email/client_emails.txt` for operational email copy
+- `../client-facing/assets/email/outreach_email_sequences.txt` for outbound email sequences
+- `../client-facing/assets/contracts/` for scope templates
+- `../client-facing/reports/LIVE_REPORT.txt` for the canonical proof asset
