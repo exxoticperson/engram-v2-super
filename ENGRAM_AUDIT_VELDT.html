@@ -1,0 +1,1705 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENGRAM — Pre-Flight Audit / VELDT / Pre-Dawn Recovery Serum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #050505;
+  --black-2: #090909;
+  --surface: #0e0e0e;
+  --surface-2: #121212;
+  --border: rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.13);
+  --text: #EDE9E1;
+  --muted: rgba(237,233,225,0.56);
+  --faint: rgba(237,233,225,0.28);
+  --signal: #00E87A;
+  --signal-dim: rgba(0,232,122,0.18);
+  --signal-glow: rgba(0,232,122,0.08);
+  --danger: #FF4040;
+  --danger-dim: rgba(255,64,64,0.14);
+  --amber: #C4A96A;
+  --amber-dim: rgba(196,169,106,0.14);
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --ui: 'Syne', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+  --max: 1500px;
+  --pad: clamp(28px, 4vw, 64px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--ui);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Global grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 30%, transparent 80%);
+  opacity: 0.6;
+}
+
+.shell { position: relative; z-index: 1; }
+
+/* ——————————————————————————————————— SECTION */
+.section {
+  padding: 0 var(--pad) clamp(60px, 8vw, 120px);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.section-pad-top { padding-top: clamp(40px, 5vw, 72px); }
+
+.wrap { max-width: var(--max); margin: 0 auto; }
+
+/* ——————————————————————————————————— TYPE */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.eyebrow-signal { color: var(--signal); opacity: 0.85; }
+.eyebrow-danger { color: var(--danger); opacity: 0.85; }
+.eyebrow-amber { color: var(--amber); opacity: 0.85; }
+
+.display {
+  font-family: var(--display);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  font-size: clamp(72px, 12vw, 180px);
+}
+
+.h1 {
+  font-family: var(--display);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  font-size: clamp(44px, 6vw, 88px);
+}
+
+.h2 {
+  font-family: var(--display);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  font-size: clamp(30px, 3.5vw, 52px);
+}
+
+.h3 {
+  font-family: var(--ui);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-size: clamp(16px, 1.4vw, 20px);
+}
+
+.body {
+  font-family: var(--ui);
+  font-weight: 400;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* ——————————————————————————————————— TOPBAR */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px var(--pad);
+  background: rgba(5,5,5,0.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-logo {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.topbar-meta {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.topbar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255,255,255,0.03);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.topbar-pill.signal { border-color: rgba(0,232,122,0.3); color: var(--signal); background: var(--signal-glow); }
+.topbar-pill.danger { border-color: rgba(255,64,64,0.28); color: var(--danger); background: var(--danger-dim); }
+.topbar-pill.amber  { border-color: rgba(196,169,106,0.28); color: var(--amber); background: var(--amber-dim); }
+
+.dot-pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+/* ——————————————————————————————————— COVER */
+.cover {
+  min-height: 92svh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: end;
+  padding-top: clamp(56px, 8vw, 112px);
+}
+
+.cover-left {}
+.cover-tagline {
+  margin-top: 20px;
+  max-width: 640px;
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cover-stamps {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.stamp {
+  background: var(--surface);
+  padding: 18px 20px;
+  position: relative;
+}
+
+.stamp-value {
+  font-size: clamp(15px, 1.3vw, 19px);
+  font-weight: 600;
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+
+.stamp-value.signal { color: var(--signal); }
+.stamp-value.danger { color: var(--danger); }
+.stamp-value.amber  { color: var(--amber); }
+
+/* Cover right art */
+.cover-art {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+}
+
+.cover-art-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 62% 22%, rgba(0,232,122,0.09), transparent 44%),
+    radial-gradient(circle at 30% 70%, rgba(196,169,106,0.07), transparent 38%),
+    radial-gradient(circle at 78% 64%, rgba(255,64,64,0.05), transparent 36%);
+}
+
+.cover-art-lines {
+  position: absolute;
+  inset: 0;
+}
+
+.cover-score-display {
+  position: relative;
+  z-index: 2;
+}
+
+.score-big {
+  font-family: var(--display);
+  font-size: 120px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--text);
+}
+
+.score-big span { color: var(--muted); font-size: 0.5em; vertical-align: super; }
+
+.score-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: 1px solid rgba(196,169,106,0.35);
+  background: var(--amber-dim);
+  color: var(--amber);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ——————————————————————————————————— SECTION HEADER */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: clamp(28px, 3.5vw, 48px);
+}
+
+/* ——————————————————————————————————— SUMMARY GRID */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 40px;
+}
+
+.sum-cell {
+  background: var(--surface);
+  padding: clamp(20px, 2.5vw, 32px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sum-cell::after {
+  content: attr(data-num);
+  position: absolute;
+  right: 16px;
+  bottom: 8px;
+  font-family: var(--display);
+  font-size: 80px;
+  font-weight: 300;
+  opacity: 0.04;
+  color: var(--text);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.sum-score {
+  font-family: var(--display);
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 10px 0 6px;
+}
+
+.sum-score.ok   { color: var(--signal); }
+.sum-score.warn { color: var(--amber); }
+.sum-score.bad  { color: var(--danger); }
+
+.sum-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.verdict-block {
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.verdict-block::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--amber), rgba(196,169,106,0.1));
+}
+
+/* ——————————————————————————————————— TREND SNAPSHOT */
+.trend-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.trend-findings {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}
+
+.trend-item {
+  background: var(--surface);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.trend-rank {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+}
+
+.trend-stat {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--signal);
+  letter-spacing: -0.03em;
+}
+
+.category-pulse {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pulse-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pulse-row {
+  display: grid;
+  grid-template-columns: 1fr 52px;
+  gap: 8px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pbar-track {
+  height: 3px;
+  background: rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.pbar-fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--signal), rgba(0,232,122,0.5));
+  transform-origin: left;
+  animation: barIn 1.2s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@keyframes barIn { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+/* ——————————————————————————————————— ATTENTION CURVE */
+.curve-wrap {
+  position: relative;
+  border: 1px solid var(--border);
+  background: #070707;
+  overflow: hidden;
+}
+
+.curve-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.curve-container {
+  position: relative;
+  height: 360px;
+}
+
+.curve-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.curve-axis-x {
+  position: absolute;
+  bottom: 16px;
+  left: 40px; right: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+}
+
+.curve-axis-y {
+  position: absolute;
+  left: 14px;
+  top: 20px; bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--faint);
+  letter-spacing: 0.08em;
+}
+
+.breakpoint-flag {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  pointer-events: none;
+}
+
+.bpf-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--danger), transparent);
+  opacity: 0.5;
+}
+
+.bpf-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--danger);
+  border: 1px solid rgba(255,64,64,0.3);
+  box-shadow: 0 0 12px rgba(255,64,64,0.4);
+  margin-top: -5px;
+}
+
+.bpf-label {
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--danger);
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.curve-threshold-label {
+  position: absolute;
+  right: 26px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.7;
+}
+
+/* Curve path animation */
+.curve-path-animated {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawPath 2.4s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+}
+.curve-fill-animated {
+  opacity: 0;
+  animation: fadeIn 0.8s ease 2.2s both;
+}
+@keyframes drawPath { to { stroke-dashoffset: 0; } }
+@keyframes fadeIn   { to { opacity: 1; } }
+
+/* ——————————————————————————————————— SCORECARD */
+.scorecard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+
+.metric-cell {
+  background: var(--surface);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-cell::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.metric-cell.triggered::before {
+  background: linear-gradient(90deg, var(--danger), transparent);
+}
+
+.metric-cell.clean::before {
+  background: linear-gradient(90deg, var(--signal), transparent);
+}
+
+.metric-cell.moderate::before {
+  background: linear-gradient(90deg, var(--amber), transparent);
+}
+
+.metric-name {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.metric-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+.metric-score-wrap {
+  text-align: right;
+}
+
+.metric-score {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.metric-score.bad  { color: var(--danger); }
+.metric-score.warn { color: var(--amber); }
+.metric-score.ok   { color: var(--signal); }
+
+.metric-bar-wrap {
+  margin-top: 12px;
+  height: 2px;
+  background: rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-bar {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  transform-origin: left;
+  animation: barIn 1.4s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.metric-bar.bad  { background: var(--danger); }
+.metric-bar.warn { background: var(--amber); }
+.metric-bar.ok   { background: var(--signal); }
+
+/* ——————————————————————————————————— BREAKPOINTS */
+.bp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.bp-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.bp-card.sev-high::before  { background: var(--danger); box-shadow: 0 0 12px rgba(255,64,64,0.3); }
+.bp-card.sev-med::before   { background: var(--amber);  box-shadow: 0 0 12px rgba(196,169,106,0.2); }
+
+.bp-time {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 16px 0 8px;
+}
+
+.bp-time.danger { color: var(--danger); }
+.bp-time.amber  { color: var(--amber); }
+
+.bp-metric-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--faint);
+}
+
+.bp-finding { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+.bp-sev-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sev-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ——————————————————————————————————— REPAIRS */
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.repair-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 28px;
+  position: relative;
+}
+
+.repair-num {
+  font-family: var(--display);
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(237,233,225,0.08);
+  position: absolute;
+  right: 20px;
+  top: 16px;
+}
+
+.repair-impact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 10px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,232,122,0.2);
+  color: var(--signal);
+  background: var(--signal-glow);
+}
+
+.recut-brief {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  padding: clamp(24px, 3vw, 40px);
+  position: relative;
+}
+
+.recut-brief::before {
+  content: 'RECUT BRIEF';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  padding: 2px 12px;
+  background: var(--black);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  border: 1px solid rgba(196,169,106,0.3);
+}
+
+.recut-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.recut-item:last-child { border-bottom: none; }
+
+.recut-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* ——————————————————————————————————— VERDICT */
+.verdict-section {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  padding: clamp(36px, 5vw, 72px);
+  position: relative;
+  overflow: hidden;
+}
+
+.verdict-section::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--amber) 30%, var(--signal) 70%, transparent 100%);
+}
+
+.verdict-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(196,169,106,0.04), transparent 70%);
+  pointer-events: none;
+}
+
+.verdict-inner { position: relative; z-index: 1; }
+
+.verdict-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(196,169,106,0.4);
+  background: var(--amber-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.verdict-headline {
+  font-family: var(--display);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  font-size: clamp(36px, 4.5vw, 68px);
+  max-width: 1000px;
+  margin-bottom: 28px;
+}
+
+.verdict-conditions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin-top: 36px;
+}
+
+.vc-block {
+  background: var(--black-2);
+  padding: 22px 26px;
+}
+
+.vc-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.vc-label.ok     { color: var(--signal); }
+.vc-label.change { color: var(--amber); }
+
+.vc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vc-list li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+
+.vc-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 1px;
+}
+
+.vc-list.ok li::before     { background: var(--signal); }
+.vc-list.change li::before { background: var(--amber); }
+
+/* ——————————————————————————————————— FOOTER */
+.report-footer {
+  padding: 40px var(--pad);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-disclaimer {
+  max-width: 760px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  color: var(--faint);
+}
+
+.footer-logo {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  flex-shrink: 0;
+}
+
+/* ——————————————————————————————————— DIVIDER */
+.rule {
+  height: 1px;
+  background: var(--border);
+  margin: clamp(28px, 3.5vw, 48px) 0;
+}
+
+/* ——————————————————————————————————— UTILITY */
+.flex { display: flex; }
+.flex-between { display: flex; justify-content: space-between; align-items: flex-start; }
+.gap-8 { gap: 8px; }
+.gap-16 { gap: 16px; }
+.gap-24 { gap: 24px; }
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-40 { margin-top: 40px; }
+.mb-8  { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+
+/* ——————————————————————————————————— FADE IN */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-up.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ——————————————————————————————————— RESPONSIVE */
+@media (max-width: 1100px) {
+  .cover { grid-template-columns: 1fr; }
+  .cover-art { min-height: 380px; }
+  .trend-grid { grid-template-columns: 1fr; }
+  .verdict-conditions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 820px) {
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .scorecard-grid { grid-template-columns: 1fr; }
+  .bp-grid { grid-template-columns: 1fr; }
+  .repair-grid { grid-template-columns: 1fr; }
+  .cover-stamps { grid-template-columns: 1fr; }
+  .topbar-meta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== TOPBAR ====== -->
+<div class="topbar">
+  <div class="topbar-logo">ENGRAM</div>
+  <div class="topbar-meta">
+    <div class="topbar-pill amber">
+      <span class="dot-pulse"></span>
+      Conditional Go
+    </div>
+    <div class="topbar-pill" style="color:var(--faint)">VELDT / Pre-Dawn Recovery</div>
+    <div class="topbar-pill" style="color:var(--faint)">Confidence: HIGH</div>
+    <div class="topbar-pill" style="color:var(--faint)">PRE-FLIGHT AUDIT</div>
+  </div>
+</div>
+
+<main class="shell">
+
+<!-- ====== COVER ====== -->
+<section class="section section-pad-top">
+  <div class="wrap cover">
+    <div class="cover-left fade-up">
+      <div class="eyebrow mb-16">Pre-Flight Creative Audit &nbsp;/&nbsp; Short-Form Paid Social &nbsp;/&nbsp; Confidential</div>
+      <h1 class="display">ENGRAM</h1>
+      <p class="cover-tagline">Where the creative breaks, why it breaks,<br>and what to change before launch.</p>
+      <div class="cover-stamps mt-32">
+        <div class="stamp">
+          <div class="eyebrow">Brand</div>
+          <div class="stamp-value">VELDT</div>
+        </div>
+        <div class="stamp">
+          <div class="eyebrow">Asset</div>
+          <div class="stamp-value">Pre-Dawn Recovery<br>Serum :28s</div>
+        </div>
+        <div class="stamp">
+          <div class="eyebrow">Platform</div>
+          <div class="stamp-value">Meta / TikTok</div>
+        </div>
+        <div class="stamp">
+          <div class="eyebrow">Category</div>
+          <div class="stamp-value">Men's Premium<br>Skincare DTC</div>
+        </div>
+        <div class="stamp">
+          <div class="eyebrow">Verdict</div>
+          <div class="stamp-value amber">Conditional Go</div>
+        </div>
+        <div class="stamp">
+          <div class="eyebrow">Confidence</div>
+          <div class="stamp-value signal">High</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-art fade-up" style="animation-delay:0.2s">
+      <div class="cover-art-bg"></div>
+
+      <!-- animated SVG lines in cover art -->
+      <svg class="cover-art-lines" viewBox="0 0 400 520" aria-hidden="true" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="artLine1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(0,232,122,0)" />
+            <stop offset="40%" stop-color="rgba(0,232,122,0.5)" />
+            <stop offset="100%" stop-color="rgba(0,232,122,0)" />
+          </linearGradient>
+          <linearGradient id="artLine2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(196,169,106,0)" />
+            <stop offset="50%" stop-color="rgba(196,169,106,0.35)" />
+            <stop offset="100%" stop-color="rgba(196,169,106,0)" />
+          </linearGradient>
+        </defs>
+        <!-- horizontal rules -->
+        <line x1="0" y1="100" x2="400" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="300" x2="400" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="400" x2="400" y2="400" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <!-- glow line -->
+        <line x1="0" y1="260" x2="400" y2="260" stroke="url(#artLine1)" stroke-width="1.5"/>
+        <line x1="0" y1="340" x2="400" y2="340" stroke="url(#artLine2)" stroke-width="1"/>
+        <!-- vertical rules -->
+        <line x1="133" y1="0" x2="133" y2="520" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+        <line x1="266" y1="0" x2="266" y2="520" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+        <!-- diagonal cross hair -->
+        <line x1="0" y1="520" x2="400" y2="0" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <!-- circle rings -->
+        <circle cx="340" cy="80" r="60" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <circle cx="340" cy="80" r="36" fill="none" stroke="rgba(0,232,122,0.1)" stroke-width="1"/>
+        <circle cx="340" cy="80" r="8" fill="rgba(0,232,122,0.15)"/>
+      </svg>
+
+      <div class="cover-score-display">
+        <div class="eyebrow mb-8">Composite Score</div>
+        <div class="score-big">58<span>/100</span></div>
+        <div class="score-band">
+          <span>⬥</span>
+          Conditional Launch — Two Structural Repairs Required
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 01 EXECUTIVE SUMMARY ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">01 &nbsp;/&nbsp; Executive Summary</div>
+        <div class="h2">What this ad does. What it doesn't.</div>
+      </div>
+      <div class="eyebrow" style="text-align:right">Diagnostic Read<br>28-Second Cut</div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="sum-cell" data-num="H">
+        <div class="eyebrow">Hook &nbsp;(0s–3s)</div>
+        <div class="sum-score warn">52</div>
+        <div class="sum-label">Below Threshold</div>
+        <p class="body mt-8" style="font-size:13px">Opens on product, not problem. Viewer has no reason to keep watching.</p>
+      </div>
+      <div class="sum-cell" data-num="H">
+        <div class="eyebrow">Hold &nbsp;(3s–18s)</div>
+        <div class="sum-score warn">61</div>
+        <div class="sum-label">Marginal</div>
+        <p class="body mt-8" style="font-size:13px">Texture shots sustain minimal interest. Voiceover messaging lags visual pacing.</p>
+      </div>
+      <div class="sum-cell" data-num="R">
+        <div class="eyebrow">Reveal &nbsp;(14s–22s)</div>
+        <div class="sum-score bad">44</div>
+        <div class="sum-label">Critical Failure</div>
+        <p class="body mt-8" style="font-size:13px">Product payoff arrives at 67% predicted attention loss. Nobody is watching the reveal.</p>
+      </div>
+      <div class="sum-cell" data-num="C">
+        <div class="eyebrow">Close &nbsp;(22s–28s)</div>
+        <div class="sum-score bad">38</div>
+        <div class="sum-label">Inert</div>
+        <p class="body mt-8" style="font-size:13px">CTA fires at near-zero memory salience. No action pressure. Passive benefit statement.</p>
+      </div>
+    </div>
+
+    <div class="verdict-block">
+      <div class="eyebrow-amber eyebrow mb-16">Single-Line Verdict</div>
+      <p class="h1" style="max-width:960px">The product is premium. The ad is not earning the viewer early enough to matter.</p>
+      <p class="body mt-24" style="max-width:820px">VELDT's Pre-Dawn Recovery Serum has a legitimate product story — the visual quality confirms premium positioning, and the texture and skin-response footage is strong. The structural problem is sequencing: the creative opens without conflict, builds without contrast, and closes without pressure. Every strong element is in the wrong position.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 02 CATEGORY TREND SNAPSHOT ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">02 &nbsp;/&nbsp; Category Trend Snapshot</div>
+        <div class="h2">What's winning in men's skincare<br>on TikTok and Meta right now.</div>
+      </div>
+      <div class="eyebrow" style="text-align:right">7-Day Category Scan<br>Real-Time Context Layer</div>
+    </div>
+
+    <div class="trend-grid">
+      <div>
+        <div class="eyebrow mb-16">Top Category Signals — 7-Day Window</div>
+        <div class="trend-findings">
+          <div class="trend-item">
+            <div class="trend-rank">01</div>
+            <div>
+              <div class="h3 mb-8">Problem-first hooks are dominating hold rates</div>
+              <div class="body" style="font-size:13px">Ads that open on a visible skin condition (redness, texture, fatigue) before introducing product are outperforming product-first openers by an estimated 2.1× on 3-second hold rate. VELDT's current opener inverts this pattern.</div>
+            </div>
+            <div class="trend-stat">2.1×</div>
+          </div>
+          <div class="trend-item">
+            <div class="trend-rank">02</div>
+            <div>
+              <div class="h3 mb-8">Before/after contrast appearing earlier</div>
+              <div class="body" style="font-size:13px">Category leaders are introducing visual transformation evidence before the 8-second mark. The current VELDT reveal at 22 seconds is significantly behind this window.</div>
+            </div>
+            <div class="trend-stat">8s</div>
+          </div>
+          <div class="trend-item">
+            <div class="trend-rank">03</div>
+            <div>
+              <div class="h3 mb-8">Specificity over aspiration in copy</div>
+              <div class="body" style="font-size:13px">Precise claims ("barrier restored in 72 hours," "clinical-grade retinol without the burn") are outperforming aspirational language across men's grooming on Meta. VELDT's VO leans aspirational throughout.</div>
+            </div>
+            <div class="trend-stat">+34%</div>
+          </div>
+          <div class="trend-item">
+            <div class="trend-rank">04</div>
+            <div>
+              <div class="h3 mb-8">Ritual framing over ingredient framing</div>
+              <div class="body" style="font-size:13px">Men's skincare ads positioning the product as part of a daily ritual (morning/night, pre-gym, post-shave) outperform ingredient-led ads in thumb-stop rate by roughly 1.6×.</div>
+            </div>
+            <div class="trend-stat">1.6×</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-pulse">
+        <div class="eyebrow mb-16">Category Benchmarks</div>
+        <div class="pulse-bar-wrap">
+          <div>
+            <div class="pulse-row">
+              <span>Hook Strength (category avg)</span>
+              <span style="color:var(--signal)">72</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:72%; animation-delay:0.1s"></div></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="pulse-row">
+              <span>Hold Rate (category avg)</span>
+              <span style="color:var(--signal)">66</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:66%; animation-delay:0.2s"></div></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="pulse-row">
+              <span>Reveal Timing (optimal)</span>
+              <span style="color:var(--amber)">≤12s</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:43%; animation-delay:0.3s; background:linear-gradient(90deg,var(--amber),rgba(196,169,106,0.4))"></div></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="pulse-row">
+              <span>CTA recall (category avg)</span>
+              <span style="color:var(--signal)">59</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:59%; animation-delay:0.4s"></div></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="pulse-row">
+              <span>VELDT composite score</span>
+              <span style="color:var(--danger)">58</span>
+            </div>
+            <div class="pbar-track"><div class="pbar-fill" style="width:58%; animation-delay:0.5s; background:linear-gradient(90deg,var(--danger),rgba(255,64,64,0.4))"></div></div>
+          </div>
+        </div>
+        <div class="rule"></div>
+        <div class="eyebrow mb-8">Cultural-Neural Alignment</div>
+        <div class="h2" style="color:var(--danger)">Low</div>
+        <p class="body mt-8" style="font-size:12px">Current creative is neurally moderate but misaligned with live category patterns. Fixing the structural sequence would immediately improve this score.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 03 ATTENTION CURVE ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">03 &nbsp;/&nbsp; Attention Curve</div>
+        <div class="h2">Where the viewer is lost.</div>
+      </div>
+      <div class="eyebrow" style="text-align:right">Neural Response Prediction<br>Confidence: High</div>
+    </div>
+
+    <div class="curve-wrap">
+      <div class="curve-header">
+        <div class="eyebrow">Predicted Attention — 28s Cut</div>
+        <div class="flex gap-24" style="align-items:center">
+          <div class="flex gap-8" style="align-items:center">
+            <div style="width:24px;height:2px;background:var(--signal);box-shadow:0 0 8px rgba(0,232,122,0.4)"></div>
+            <span class="eyebrow">Predicted attention</span>
+          </div>
+          <div class="flex gap-8" style="align-items:center">
+            <div style="width:24px;height:2px;background:var(--amber);opacity:0.7;border-top:1px dashed var(--amber)"></div>
+            <span class="eyebrow">Launch threshold</span>
+          </div>
+          <div class="flex gap-8" style="align-items:center">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--danger)"></div>
+            <span class="eyebrow">Breakpoint</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="curve-container">
+        <svg class="curve-svg" viewBox="0 0 1400 340" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(0,232,122,0.18)"/>
+              <stop offset="60%" stop-color="rgba(0,232,122,0.06)"/>
+              <stop offset="100%" stop-color="rgba(0,232,122,0)"/>
+            </linearGradient>
+            <filter id="glowGreen">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Grid lines -->
+          <line x1="0" y1="60"  x2="1400" y2="60"  stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="0" y1="120" x2="1400" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="0" y1="180" x2="1400" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="0" y1="240" x2="1400" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <line x1="0" y1="300" x2="1400" y2="300" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+          <!-- Vertical tick marks -->
+          <line x1="200"  y1="0" x2="200"  y2="340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+          <line x1="400"  y1="0" x2="400"  y2="340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+          <line x1="600"  y1="0" x2="600"  y2="340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+          <line x1="800"  y1="0" x2="800"  y2="340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+          <line x1="1000" y1="0" x2="1000" y2="340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+          <line x1="1200" y1="0" x2="1200" y2="340" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+
+          <!-- Threshold line -->
+          <line x1="0" y1="168" x2="1400" y2="168" stroke="rgba(196,169,106,0.65)" stroke-width="1.5" stroke-dasharray="8 12"/>
+
+          <!-- Fill area under curve -->
+          <path class="curve-fill-animated"
+            d="M0,88 C80,84 130,92 200,108 S320,136 420,148 S580,162 680,178 S820,208 900,228 S1040,264 1100,278 S1260,270 1400,286 L1400,340 L0,340 Z"
+            fill="url(#curveFill)"/>
+
+          <!-- Main curve path -->
+          <path class="curve-path-animated"
+            d="M0,88 C80,84 130,92 200,108 S320,136 420,148 S580,162 680,178 S820,208 900,228 S1040,264 1100,278 S1260,270 1400,286"
+            fill="none"
+            stroke="var(--signal)"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            filter="url(#glowGreen)"/>
+
+          <!-- Breakpoint indicators -->
+          <!-- BP1 at ~3s (x≈150) -->
+          <line x1="150" y1="105" x2="150" y2="300" stroke="rgba(255,64,64,0.3)" stroke-width="1" stroke-dasharray="3 6"/>
+          <circle cx="150" cy="105" r="5" fill="var(--danger)" opacity="0.9"/>
+
+          <!-- BP2 at ~14s (x≈700) -->
+          <line x1="700" y1="180" x2="700" y2="300" stroke="rgba(255,64,64,0.3)" stroke-width="1" stroke-dasharray="3 6"/>
+          <circle cx="700" cy="180" r="5" fill="var(--danger)" opacity="0.9"/>
+
+          <!-- BP3 at ~22s (x≈1100) -->
+          <line x1="1100" y1="278" x2="1100" y2="300" stroke="rgba(255,64,64,0.3)" stroke-width="1" stroke-dasharray="3 6"/>
+          <circle cx="1100" cy="278" r="5" fill="var(--danger)" opacity="0.9"/>
+
+        </svg>
+
+        <!-- Threshold label -->
+        <div class="curve-threshold-label" style="top: calc(168 / 340 * 100% - 14px)">Launch Threshold</div>
+
+        <!-- Axis Y labels -->
+        <div class="curve-axis-y">
+          <span>High</span>
+          <span>Mid</span>
+          <span>Low</span>
+        </div>
+
+        <!-- Axis X labels -->
+        <div class="curve-axis-x">
+          <span>0s</span>
+          <span>4s</span>
+          <span>8s</span>
+          <span>12s</span>
+          <span>16s</span>
+          <span>20s</span>
+          <span>24s</span>
+          <span>28s</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breakpoint flag labels below chart -->
+    <div class="flex mt-16" style="gap:16px">
+      <div style="flex:1; padding:14px 16px; border:1px solid rgba(255,64,64,0.2); background:var(--danger-dim)">
+        <div class="eyebrow-danger eyebrow mb-8">3s — Hook Failure</div>
+        <div class="body" style="font-size:12px">No conflict established. Viewer has no reason to continue watching.</div>
+      </div>
+      <div style="flex:1; padding:14px 16px; border:1px solid rgba(255,64,64,0.2); background:var(--danger-dim)">
+        <div class="eyebrow-danger eyebrow mb-8">14s — Message Drift</div>
+        <div class="body" style="font-size:12px">VO complexity increases as attention drops. The audience is gone before the product story resolves.</div>
+      </div>
+      <div style="flex:1; padding:14px 16px; border:1px solid rgba(255,64,64,0.2); background:var(--danger-dim)">
+        <div class="eyebrow-danger eyebrow mb-8">22s — Reveal Waste</div>
+        <div class="body" style="font-size:12px">Product reveal and CTA arrive at near-zero predicted memory salience. The best moment in the ad is invisible.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 04 SCORECARD ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">04 &nbsp;/&nbsp; ENGRAM Scorecard</div>
+        <div class="h2">All nine diagnostic dimensions.</div>
+      </div>
+      <div style="text-align:right">
+        <div class="eyebrow mb-8">Composite</div>
+        <div class="h1" style="color:var(--amber); line-height:1">58</div>
+      </div>
+    </div>
+
+    <div class="scorecard-grid">
+
+      <div class="metric-cell triggered">
+        <div>
+          <div class="metric-name" style="color:var(--danger)">Hook Friction</div>
+          <div class="metric-desc">Visual stimulus is strong but semantic setup is absent. Viewer is drawn in visually then released immediately for lack of a question to answer.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar bad" style="width:31%; animation-delay:0.1s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score bad">31</div>
+          <div class="eyebrow mt-8" style="color:var(--danger)">Triggered</div>
+        </div>
+      </div>
+
+      <div class="metric-cell moderate">
+        <div>
+          <div class="metric-name" style="color:var(--amber)">Comprehension Drift</div>
+          <div class="metric-desc">Message complexity escalates in the 12–18s window while predicted attention is declining. The information arrives in the wrong order.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar warn" style="width:48%; animation-delay:0.2s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score warn">48</div>
+          <div class="eyebrow mt-8" style="color:var(--amber)">Moderate</div>
+        </div>
+      </div>
+
+      <div class="metric-cell triggered">
+        <div>
+          <div class="metric-name" style="color:var(--danger)">Reveal Waste</div>
+          <div class="metric-desc">Product value and transformation evidence appear at 22s, which is past the point of meaningful attention recovery. The reveal lands in a dead window.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar bad" style="width:24%; animation-delay:0.3s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score bad">24</div>
+          <div class="eyebrow mt-8" style="color:var(--danger)">Critical</div>
+        </div>
+      </div>
+
+      <div class="metric-cell triggered">
+        <div>
+          <div class="metric-name" style="color:var(--danger)">CTA Recall Gap</div>
+          <div class="metric-desc">CTA fires at second 26 with predicted memory salience near floor. Even engaged viewers will not retain the action instruction.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar bad" style="width:22%; animation-delay:0.4s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score bad">22</div>
+          <div class="eyebrow mt-8" style="color:var(--danger)">Triggered</div>
+        </div>
+      </div>
+
+      <div class="metric-cell clean">
+        <div>
+          <div class="metric-name" style="color:var(--signal)">Modality Alignment</div>
+          <div class="metric-desc">Voiceover, captions, and visuals are reinforcing each other consistently. No significant friction between what is seen and what is heard.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar ok" style="width:78%; animation-delay:0.5s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score ok">78</div>
+          <div class="eyebrow mt-8" style="color:var(--signal)">Clean</div>
+        </div>
+      </div>
+
+      <div class="metric-cell moderate">
+        <div>
+          <div class="metric-name" style="color:var(--amber)">Branding Delay</div>
+          <div class="metric-desc">VELDT wordmark and brand identity arrive at 4.2s — slightly late relative to category leaders in men's premium. Acceptable if the hook restructure moves visual brand anchors earlier.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar warn" style="width:62%; animation-delay:0.6s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score warn">62</div>
+          <div class="eyebrow mt-8" style="color:var(--amber)">Marginal</div>
+        </div>
+      </div>
+
+      <div class="metric-cell clean">
+        <div>
+          <div class="metric-name" style="color:var(--signal)">Edit Saturation</div>
+          <div class="metric-desc">Cut rate is appropriate for the 28-second duration. No over-editing detected. The visual pacing supports premium positioning well.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar ok" style="width:82%; animation-delay:0.7s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score ok">82</div>
+          <div class="eyebrow mt-8" style="color:var(--signal)">Clean</div>
+        </div>
+      </div>
+
+      <div class="metric-cell moderate">
+        <div>
+          <div class="metric-name" style="color:var(--amber)">Dead Air Window</div>
+          <div class="metric-desc">One 3.4-second window between 18s–21.4s where no new information is introduced. Attention drops sharply here before the reveal, compounding Reveal Waste.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar warn" style="width:53%; animation-delay:0.8s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score warn">53</div>
+          <div class="eyebrow mt-8" style="color:var(--amber)">Detected</div>
+        </div>
+      </div>
+
+      <div class="metric-cell triggered">
+        <div>
+          <div class="metric-name" style="color:var(--danger)">Cultural-Neural Alignment</div>
+          <div class="metric-desc">Creative is neurally moderate but significantly misaligned with live category patterns. Problem-first openers, earlier reveals, and ritual framing are dominating category performance this week. VELDT inverts all three.</div>
+          <div class="metric-bar-wrap mt-16"><div class="metric-bar bad" style="width:36%; animation-delay:0.9s"></div></div>
+        </div>
+        <div class="metric-score-wrap">
+          <div class="metric-score bad">36</div>
+          <div class="eyebrow mt-8" style="color:var(--danger)">Misaligned</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== 05 BREAKPOINT ANALYSIS ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">05 &nbsp;/&nbsp; Breakpoint Analysis</div>
+        <div class="h2">The three moments that are losing this ad.</div>
+      </div>
+      <div class="eyebrow" style="text-align:right">Timestamped<br>High-Severity Flags</div>
+    </div>
+
+    <div class="bp-grid">
+
+      <div class="bp-card sev-high">
+        <div class="eyebrow-danger eyebrow">Breakpoint 01 &nbsp;/&nbsp; Critical</div>
+        <div class="bp-time danger">0s – 3s</div>
+        <div class="bp-metric-tag">Hook Friction + Cultural-Neural</div>
+        <div class="h3 mb-8">The ad opens with product, not problem.</div>
+        <p class="bp-finding">The first 3 seconds show VELDT product packaging against a dark stone surface. The visual is premium — but there is nothing to solve, no conflict established, no identity hook. A man watching this on Meta has zero reason to stop scrolling. He hasn't been told anything is wrong, and hasn't been promised anything will be different. Category-leading men's grooming ads in this window are opening on visible fatigue, skin texture, or a morning-ritual moment. This ad opens on an object.</p>
+        <div class="bp-sev-badge">
+          <div class="sev-dot" style="background:var(--danger)"></div>
+          <span class="eyebrow-danger">Critical — Rebuild Required</span>
+        </div>
+      </div>
+
+      <div class="bp-card sev-high">
+        <div class="eyebrow-danger eyebrow">Breakpoint 02 &nbsp;/&nbsp; High</div>
+        <div class="bp-time danger">14s – 18s</div>
+        <div class="bp-metric-tag">Comprehension Drift + Dead Air</div>
+        <div class="h3 mb-8">VO complexity peaks as attention collapses.</div>
+        <p class="bp-finding">The voiceover introduces the product's proprietary barrier-repair complex in the 14–18s window. This is the most information-dense copy in the ad — yet it lands precisely when predicted attention has dropped below threshold. The result is that the best technical claim in the creative is being delivered to an audience that has already mentally scrolled. This is immediately followed by a 3.4-second visual pause before the product reveal, compounding the drop.</p>
+        <div class="bp-sev-badge">
+          <div class="sev-dot" style="background:var(--danger)"></div>
+          <span class="eyebrow-danger">High — Sequence Repair Required</span>
+        </div>
+      </div>
+
+      <div class="bp-card sev-med">
+        <div class="eyebrow-amber eyebrow">Breakpoint 03 &nbsp;/&nbsp; Moderate</div>
+        <div class="bp-time amber">22s – 28s</div>
+        <div class="bp-metric-tag">Reveal Waste + CTA Recall Gap</div>
+        <div class="h3 mb-8">The best creative moment fires too late to matter.</div>
+        <p class="bp-finding">The skin transformation footage and before/after contrast — which are genuinely strong assets — appear at 22s when predicted attention has been below threshold for over 8 seconds. The CTA fires at 26s with near-zero memory salience. The ad ends on an aspiration statement rather than a specific action with urgency. The visual and copy assets here are worth keeping — they simply need to be earlier in the sequence.</p>
+        <div class="bp-sev-badge">
+          <div class="sev-dot" style="background:var(--amber)"></div>
+          <span class="eyebrow-amber">Moderate — Restructure, Don't Rebuild</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== 06 REPAIR RECOMMENDATIONS ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">06 &nbsp;/&nbsp; Repair Recommendations</div>
+        <div class="h2">Three changes. Same assets.</div>
+      </div>
+      <div class="eyebrow" style="text-align:right">No reshoot required.<br>Editor-ready instructions.</div>
+    </div>
+
+    <div class="repair-grid">
+
+      <div class="repair-card">
+        <div class="repair-num">1</div>
+        <div class="eyebrow-danger eyebrow mb-16">Critical &nbsp;/ Hook Restructure</div>
+        <div class="h3 mb-12">Open on the problem, not the product.</div>
+        <p class="body">Move the close-up skin texture footage currently at 18s to frames 0–3s. The visual record of what pre-dawn skin fatigue looks like is already in the asset — it just needs to lead. Opening on the visible condition creates the problem the product exists to solve. The current opening (product on stone) is better used as a bridge cut between the problem and transformation sequence.</p>
+        <div class="repair-impact">
+          <span>⬆</span>
+          Expected: +40–60% predicted 3s hold improvement
+        </div>
+      </div>
+
+      <div class="repair-card">
+        <div class="repair-num">2</div>
+        <div class="eyebrow-danger eyebrow mb-16">High &nbsp;/ Reveal Timing</div>
+        <div class="h3 mb-12">Move the transformation evidence to second 8–10.</div>
+        <p class="body">The before/after skin response footage is currently at 22s. It should appear by 10s. This means the structural arc of the ad becomes: problem (0–3s) → product introduction (3–6s) → evidence/transformation (6–10s) → credibility + ritual framing (10–20s) → CTA with specific action (20–28s). This sequence maps directly to what is winning in the current category window.</p>
+        <div class="repair-impact">
+          <span>⬆</span>
+          Expected: Resolve Reveal Waste score — est. +22pts composite
+        </div>
+      </div>
+
+      <div class="repair-card">
+        <div class="repair-num">3</div>
+        <div class="eyebrow-amber eyebrow mb-16">Moderate &nbsp;/ CTA Rewrite</div>
+        <div class="h3 mb-12">Replace aspiration with a specific action under time pressure.</div>
+        <p class="body">Current CTA: "Discover the difference." Replace with a specific, time-bounded action: "First jar ships tomorrow — link in bio" or "72-hour barrier reset. Start tonight." The mechanism language ("barrier reset") is more credible than aspirational language in this category, and a time/supply constraint creates action pressure that the current CTA completely lacks.</p>
+        <div class="repair-impact">
+          <span>⬆</span>
+          Expected: CTA Recall Gap score from 22 → est. 58–64
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Recut Brief -->
+    <div class="recut-brief mt-40">
+      <div class="eyebrow mb-24" style="margin-top:8px">Editor Instructions — VELDT Pre-Dawn :28s Revision</div>
+      <div class="recut-item">
+        <div class="recut-bullet"></div>
+        <p class="body"><strong style="color:var(--text)">Frames 0–3s:</strong> Replace current product-on-stone opening with the skin texture close-up currently at approximately 18s. This becomes the hook. No voiceover needed here — let the visual establish the problem silently.</p>
+      </div>
+      <div class="recut-item">
+        <div class="recut-bullet"></div>
+        <p class="body"><strong style="color:var(--text)">Frames 3–6s:</strong> Cut to product introduction (current second 0–3 footage works here). Add VELDT wordmark overlay no later than 4s. Brief VO or title card: "Pre-Dawn Recovery Serum."</p>
+      </div>
+      <div class="recut-item">
+        <div class="recut-bullet"></div>
+        <p class="body"><strong style="color:var(--text)">Frames 6–10s:</strong> Move before/after transformation sequence (currently at 22s) here. This is the evidence window. Let it breathe — two strong cuts maximum. No VO. Let the skin response footage earn the credibility.</p>
+      </div>
+      <div class="recut-item">
+        <div class="recut-bullet"></div>
+        <p class="body"><strong style="color:var(--text)">Frames 10–22s:</strong> Retain current ritual/ingredient sequence with minor VO edit — replace "experience the transformation" with the specific claim ("72-hour barrier reset") at the start of this window, not the end.</p>
+      </div>
+      <div class="recut-item">
+        <div class="recut-bullet"></div>
+        <p class="body"><strong style="color:var(--text)">Frames 22–28s:</strong> CTA window. Replace "Discover the difference" with specific time-pressure language. Full-screen product shot + wordmark. Consider: "First batch — 72 hours to ship. Link in bio."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 07 LAUNCH VERDICT ====== -->
+<section class="section section-pad-top fade-up">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow mb-8">07 &nbsp;/&nbsp; Launch Verdict</div>
+        <div class="h2">Final recommendation.</div>
+      </div>
+    </div>
+
+    <div class="verdict-section">
+      <div class="verdict-inner">
+        <div class="verdict-stamp">
+          <span>⬥</span>
+          Conditional Go — Do Not Launch Current Cut
+        </div>
+        <h2 class="verdict-headline">
+          Strong product. Wrong sequence. Three structural changes make this a launch-ready asset without a reshoot.
+        </h2>
+        <p class="body" style="max-width:840px">
+          The core creative assets in this ad — the skin texture footage, transformation evidence, product quality, and brand visual language — are genuinely strong. The problem is entirely structural: the best material is in the wrong positions. This is a sequencing failure, not a creative failure. A re-edit following the three instructions above should produce a version that clears the composite threshold.
+        </p>
+        <div class="verdict-conditions mt-40">
+          <div class="vc-block">
+            <div class="vc-label ok">What stays — do not change</div>
+            <ul class="vc-list ok">
+              <li>Premium visual quality and lighting throughout</li>
+              <li>Skin texture and barrier transformation footage assets</li>
+              <li>VELDT visual identity and brand language</li>
+              <li>Modality alignment — VO and visuals work together well</li>
+              <li>Edit pacing and cut rate — no over-editing detected</li>
+              <li>Product shot quality at the close</li>
+            </ul>
+          </div>
+          <div class="vc-block">
+            <div class="vc-label change">What changes before launch</div>
+            <ul class="vc-list change">
+              <li>Opening sequence — move problem footage to 0–3s</li>
+              <li>Transformation evidence — move to 6–10s window</li>
+              <li>VO reorder — specific claim before 12s, not after 14s</li>
+              <li>Remove 3.4s dead air window between 18s–21.4s</li>
+              <li>CTA copy — replace aspiration with specific action + pressure</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="report-footer">
+  <p class="footer-disclaimer">
+    ENGRAM diagnostics are based on neural response prediction and semantic analysis signals. They identify likely attention failures and comprehension gaps. They are not guarantees of business outcomes. This is a decision-support tool designed to improve launch selection and reduce creative waste — not a predictor of conversion rate, ROAS, or sales. All benchmark data reflects real-time category scan at time of analysis. &nbsp;/&nbsp; Confidential. Prepared for VELDT agency review only. &nbsp;/&nbsp; ENGRAM &copy; 2026
+  </p>
+  <div class="footer-logo">ENGRAM</div>
+</footer>
+
+</main>
+
+<script>
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Stagger bar animations on scroll
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.metric-bar, .pbar-fill').forEach((bar, i) => {
+        bar.style.animationDelay = (i * 0.1) + 's';
+        bar.style.animationPlayState = 'running';
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.scorecard-grid, .pulse-bar-wrap').forEach(el => barObserver.observe(el));
+</script>
+
+</body>
+</html>
